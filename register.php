@@ -16,8 +16,52 @@ if (isset($_POST['register'])) {
 }
 ?>
 
-<form method="POST">
-    Username: <input type="text" name="username" required><br>
-    Password: <input type="password" name="password" required><br>
-    <button name="register">Register</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body style="background-color: #efeff0;" class="d-flex justify-content-center align-items-center min-vh-100">
+    <div class="container">
+        <div class="row bg-white rounded-4 d-flex align-items-center">
+            <div class="col-6">
+                <img src="img/register.svg" alt="" class="col-10 d-flex mx-auto">
+            </div>
+            <div class="col-6 align-content-center">
+                <form action="" method="post" class="col-10 mx-auto">
+                    <h1 class="text-center">Registrasi</h1>
+
+                    <!-- Tambahan Input Username -->
+                    <div class="mb-3 mt-5">
+                        <label for="username" class="form-label fs-5 text-secondary">Username</label>
+                        <input type="text" class="form-control" id="username" name="username"
+                            placeholder="Masukkan Username" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label fs-5 text-secondary">Email</label>
+                        <input type="email" class="form-control" id="email" name="email"
+                            placeholder="Masukkan Email" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label fs-5 text-secondary">Password</label>
+                        <input type="password" class="form-control" id="password" name="password"
+                            placeholder="Masukan Password" required>
+                    </div>
+
+                    <button type="submit" name="register"
+                        class="btn button1 px-5 rounded-5 d-flex mx-auto fs-5">Registrasi</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
