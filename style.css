@@ -1,0 +1,11 @@
+body {
+    font-family: 'Poppins';font-size: 22px;
+}
+.button1{
+    color : white;
+    background-color : #0849BC;
+}
+.button1:hover{
+    color : white;
+    background-color : #063C9C;
+}
