@@ -53,7 +53,7 @@ if (isset($_POST['register'])) {
                     <div class="mb-3">
                         <label for="password" class="form-label fs-5 text-secondary">Password</label>
                         <input type="password" class="form-control" id="password" name="password"
-                            placeholder="Masukan Passwordd" required>
+                            placeholder="Masukan Password" required>
                     </div>
 
                     <button type="submit" name="register"
