@@ -60,7 +60,6 @@ if (isset($_POST['login'])) {
                     <div class="mb-3 mt-5">
                         <label for="username" class="form-label fs-5 text-secondary">Username</label>
                         <input type="text" class="form-control" id="username" name="username" placeholder="Masukan Username" required>
-
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label fs-5 text-secondary">Password</label>
@@ -72,9 +71,9 @@ if (isset($_POST['login'])) {
                     </div>
                     <button type="submit" name="login" class="btn button1 px-5 rounded-5 d-flex mx-auto fs-5">Login</button>
 
-                    <div class="text-center mt-3"></div>
-                    <span class="text-secondary"> Belum Punya Akun?</span>
-                     <a href="register.php" class="btn btn-outline-secondary mt-2 px-4 rounded-5">Registrasi</a>
+                    <div class="register-link">
+                        <p>Belum Memiliki Akun????? <a href="register.php">Registrasi</a></p>
+                    </div>
                 </form>
             </div>
         </div>
