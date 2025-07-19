@@ -1,20 +1,20 @@
 <?php
-// session_start();
-// include 'db.php';
+session_start();
+include 'db.php';
 
-// // Cek jika sudah login, arahkan ke index
-// if (isset($_SESSION['login'])) {
-//     header("Location: index.php");
-//     exit();
-// }
+// Cek jika sudah login, arahkan ke index
+if (isset($_SESSION['login'])) {
+    header("Location: index.php");
+    exit();
+}
 
-// // Cek cookie jika ada
-// if (isset($_COOKIE['username'])) {
-//     $_SESSION['login'] = true;
-//     $_SESSION['username'] = $_COOKIE['username'];
-//     header("Location: index.php");
-//     exit();
-// }
+// Cek cookie jika ada
+if (isset($_COOKIE['username'])) {
+    $_SESSION['login'] = true;
+    $_SESSION['username'] = $_COOKIE['username'];
+    header("Location: index.php");
+    exit();
+}
 
 if (isset($_POST['login'])) {
     $username = $_POST['username'];
@@ -55,21 +55,26 @@ if (isset($_POST['login'])) {
                 <img src="img/login.svg" alt="" class="col-10 d-flex mx-auto">
             </div>
             <div class="col-6 align-content-center">
-                <form action="" method="get" class="col-10 mx-auto">
-                    <h1>Login</h1>
+                <form action="" method="post" class="col-10 mx-auto">
+                    <h1 class="text-center">Login</h1>
                     <div class="mb-3 mt-5">
                         <label for="username" class="form-label fs-5 text-secondary">Username</label>
-                        <input type="text" class="form-control" id="username" placeholder="Masukan Username">
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Masukan Username" required>
+
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label fs-5 text-secondary">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Masukan Password">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Masukan Password" required>
                     </div>
                     <div class="form-check mb-5">
-                        <input class="form-check-input" type="checkbox" value="" id="rememberme" checked>
+                        <input class="form-check-input" type="checkbox" value="1" id="rememberme" name="remember">
                         <label class="form-check-label fs-5" for="rememberme">Remember Me</label>
                     </div>
-                    <button type="button" name="login" class="btn button1 px-5 rounded-5 d-flex mx-auto fs-5">Login</button>
+                    <button type="submit" name="login" class="btn button1 px-5 rounded-5 d-flex mx-auto fs-5">Login</button>
+
+                    <div class="text-center mt-3"></div>
+                    <span class="text-secondary"> Belum Punya Akun?</span>
+                     <a href="register.php" class="btn btn-outline-secondary mt-2 px-4 rounded-5">Registrasi</a>
                 </form>
             </div>
         </div>
