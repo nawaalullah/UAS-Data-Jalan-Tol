@@ -41,7 +41,8 @@ $tols = getFilteredTol($asal, $tujuan);
                     </div>
                     <div class="col-6">
                         <div class="col-12 d-flex justify-content-end ">
-                            <a href="logout.php" class="btn button2 rounded-5 me-3 "><i class="bi bi-box-arrow-right"></i></a>
+                            <a href="logout.php" class="btn button2 rounded-5 me-3 "><i
+                                    class="bi bi-box-arrow-right"></i></a>
                         </div>
                     </div>
 
@@ -70,7 +71,8 @@ $tols = getFilteredTol($asal, $tujuan);
                         </div>
 
                         <div class="col-3 align-self-center d-flex justify-content-end">
-                            <a href="tambah.php" class="btn btn-success px-3 py-1"><i class="bi bi-plus"></i>Tambah Data</a>
+                            <a href="tambah.php" class="btn btn-success px-3 py-1"><i class="bi bi-plus"></i>Tambah
+                                Data</a>
                         </div>
                     </div>
 
@@ -87,23 +89,31 @@ $tols = getFilteredTol($asal, $tujuan);
                             </tr>
                         </thead>
                         <tbody>
+                            <?php foreach ($tols as $data): ?>
                             <tr>
                                 <td class="fs-6 fw-light"><?= $data['tol_asal'] ?></td>
-                                <td class="fs-6 fw-light"><?= $data['gambar_asal'] ?></td>
+                                <td class="fs-6 fw-light"><img src="uploads/<?= $data['gambar_asal'] ?>" width="100">
+                                </td>
                                 <td class="fs-6 fw-light"><?= $data['tol_tujuan'] ?></td>
-                                <td class="fs-6 fw-light"><?= $data['gambar_tujuan'] ?></td>
+                                <td class="fs-6 fw-light"><img src="uploads/<?= $data['gambar_tujuan'] ?>" width="100">
+                                </td>
                                 <td class="fs-6 fw-light"><?= $data['harga'] ?></td>
-                                <td class="align-content-center">
-                                    <div class="">
-                                        <button type="button" class="btn button1 text-white px-4 py-1">Edit</button>
-                                        <!-- belum ada php -->
-                                        <button type="button" class="btn btn-danger py-1 mt-2">Hapus</button>
-                                        <!-- belum ada php -->
-                                    </div>
-
+                                <td>
+                                    <a href="edit.php?id=<?= $data['id'] ?>"
+                                        class="btn button1 text-white px-4 py-1">Edit</a>
+                                    <a href="hapus.php?id=<?= $data['id'] ?>" class="btn btn-danger py-1 mt-2"
+                                        onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</a>
                                 </td>
                             </tr>
+                            <?php endforeach; ?>
+
+                            <?php if (empty($tols)): ?>
+                            <tr>
+                                <td colspan="6" class="text-center">Tidak ada data ditemukan</td>
+                            </tr>
+                            <?php endif; ?>
                         </tbody>
+
                     </table>
 
 
