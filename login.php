@@ -58,21 +58,26 @@ if (isset($_POST['login'])) {
                 <form action="" method="post" class="col-10 mx-auto">
                     <h1 class="text-center">Login</h1>
                     <div class="mb-3 mt-5">
-                        <label for="username" class="form-label fs-5 text-secondary">Username</label>
+                        <label for="username" class="form-label fs-6 text-secondary">Username</label>
                         <input type="text" class="form-control" id="username" name="username" placeholder="Masukan Username" required>
                     </div>
                     <div class="mb-3">
-                        <label for="password" class="form-label fs-5 text-secondary">Password</label>
+                        <label for="password" class="form-label fs-6 text-secondary">Password</label>
                         <input type="password" class="form-control" id="password" name="password" placeholder="Masukan Password" required>
                     </div>
                     <div class="form-check mb-5">
                         <input class="form-check-input" type="checkbox" value="1" id="rememberme" name="remember">
-                        <label class="form-check-label fs-5" for="rememberme">Remember Me</label>
+                        <label class="form-check-label fs-6" for="rememberme">Remember Me</label>
                     </div>
-                    <button type="submit" name="login" class="btn button1 px-5 rounded-5 d-flex mx-auto fs-5">Login</button>
 
-                    <div class="register-link">
-                        <p>Belum Memiliki Akun????? <a href="register.php">Registrasi</a></p>
+                    <div class=" ">
+                        <button type="submit" name="login" class="btn button1 px-5 rounded-5 d-flex mx-auto fs-5">Login</button>
+                         <p class="fs-6 mt-2 text-center "> <span class="text-secondary">Belum Memiliki Akun?</span> <a href="register.php">Registrasi</a></p>
+                    </div>
+                    
+
+                    
+                       
                     </div>
                 </form>
             </div>
