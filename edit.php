@@ -45,7 +45,7 @@ if (isset($_POST['submit'])) {
             <div class="collapse navbar-collapse " id="navbarNav">
                 <ul class="navbar-nav col-12 justify-content-center" >
                     <li class="nav-item fs-5 me-4 py-3 navbarr">
-                        <a class="nav-link text-white" href="#">Tentang Kami</a>
+                        <a class="nav-link text-white" href="tentangkami.php">Tentang Kami</a>
                     </li>
                     <li class="nav-item fs-5 py-3 me-4 borderactive navbarr" >
                         <a class="nav-link active fw-semibold text-white " aria-current="page" href="index.php">Data Jalan Tol</a>
