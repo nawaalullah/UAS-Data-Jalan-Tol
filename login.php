@@ -23,20 +23,35 @@ if (isset($_POST['login'])) {
     $result = mysqli_query($conn, "SELECT * FROM users WHERE username='$username'");
     $user = mysqli_fetch_assoc($result);
 
-    if ($user && password_verify($password, $user['password'])) {
-        $_SESSION['login'] = true;
-        $_SESSION['username'] = $username;
+    if (isset($_POST['login'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-        // Jika centang remember me, simpan ke cookie selama 7 hari
-        if (isset($_POST['remember'])) {
-            setcookie("username", $username, time() + (7 * 24 * 60 * 60), "/"); // 7 hari
+    $result = mysqli_query($conn, "SELECT * FROM users WHERE username='$username'");
+
+  
+    if (mysqli_num_rows($result) === 1) {
+        $user = mysqli_fetch_assoc($result);
+
+
+        if (password_verify($password, $user['password'])) {
+            $_SESSION['login'] = true;
+            $_SESSION['username'] = $username;
+
+      
+            if (isset($_POST['remember'])) {
+                setcookie("username", $username, time() + (7 * 24 * 60 * 60), "/");
+            }
+
+            header("Location: index.php");
+            exit();
+        } else {
+            echo "<script>alert('Password salah!'); window.location.href = 'login.php';</script>";
         }
-
-        header("Location: index.php");
-        exit();
     } else {
-        echo "Login gagal!";
+        echo "<script>alert('Username tidak ditemukan!'); window.location.href = 'login.php';</script>";
     }
+}
 }
 ?>
 <!DOCTYPE html>
