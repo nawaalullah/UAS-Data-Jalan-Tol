@@ -1,22 +1,12 @@
 <?php
-// session_start();
 include 'db.php';
-// include 'auth.php';
 include 'functions.php';
 
 // Ambil filter pencarian jika ada
 $asal = isset($_GET['asal']) ? $_GET['asal'] : '';
 $tujuan = isset($_GET['tujuan']) ? $_GET['tujuan'] : '';
 $tols = getFilteredTol($asal, $tujuan);
-
-// // Header
-// echo "Halo, " . $_SESSION['username'] . "!";
-// echo " | <a href='logout.php'>Logout</a> | <a href='tambah.php'>Tambah Data</a>";
-// ?>
-
-
-
-
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +23,7 @@ $tols = getFilteredTol($asal, $tujuan);
 
 <body style="background-color: #efeff0;" class="d-flex justify-content-center align-items-center min-vh-100">
     <div class="container">
-        <div class="bg-white rounded-4 d-flex align-items-center p-4  ">
+        <div class="bg-white rounded-4 d-flex align-items-center p-4">
             <form method="get" class="col-12">
 
                 <div class="row">
@@ -41,92 +31,86 @@ $tols = getFilteredTol($asal, $tujuan);
                         <h1>Data Jalan Tol </h1>
                     </div>
                     <div class="col-6">
-                        <div class="col-12 d-flex justify-content-end ">
-                            <a href="logout.php" class="btn button2 rounded-5 me-3 "><i
-                                    class="bi bi-box-arrow-right"></i></a>
+                        <div class="col-12 d-flex justify-content-end">
+                            <a href="logout.php" class="btn button2 rounded-5 me-3">
+                                <i class="bi bi-box-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <div class="">
-                    <div class="row mt-4 col-12 ">
-                        <div class="col-3 pb-3">
-                            <p for="asal" class="form-label fs-6">Asal Gerbang Tol</small>
-                                <input type="text" class="form-control pe-5" id="asal" name="asal"
-                                    placeholder="Masukan Tol Asal" value="<?= $asal ?>">
-                        </div>
-                        <div class="col-3 ">
-                            <p for="tujuan" class="form-label fs-6">Tujuan Gerbang Tol</small>
-                                <input type="text" class="form-control pe-5" id="tujuan" name="tujuan"
-                                    placeholder="Masukan Tol Tujuan" value="<?= $tujuan ?>">
-                        </div>
-
-                        <div class="col-3 align-self-center">
-                            <button type="submit" class="btn button1 px-4 py-1 "><i
-                                    class="bi bi-search me-2"></i>Cari</button>
-                            <a href="index.php" class="btn button2 px-3 py-1 ms-2"><i
-                                    class="bi bi-x-circle me-2 "></i>Reset</a>
-                        </div>
-
-                        <div class="col-3 align-self-center d-flex justify-content-end">
-                            <a href="tambah.php" class="btn btn-success px-3 py-1"><i class="bi bi-plus"></i>Tambah
-                                Data</a>
-                        </div>
+                <div class="row mt-4 col-12">
+                    <div class="col-3 pb-3">
+                        <p for="asal" class="form-label fs-6">Asal Gerbang Tol</p>
+                        <input type="text" class="form-control pe-5" id="asal" name="asal"
+                            placeholder="Masukan Tol Asal" value="<?= $asal ?>">
+                    </div>
+                    <div class="col-3">
+                        <p for="tujuan" class="form-label fs-6">Tujuan Gerbang Tol</p>
+                        <input type="text" class="form-control pe-5" id="tujuan" name="tujuan"
+                            placeholder="Masukan Tol Tujuan" value="<?= $tujuan ?>">
                     </div>
 
+                    <div class="col-3 align-self-center">
+                        <button type="submit" class="btn button1 px-4 py-1">
+                            <i class="bi bi-search me-2"></i>Cari
+                        </button>
+                        <a href="index.php" class="btn button2 px-3 py-1 ms-2">
+                            <i class="bi bi-x-circle me-2"></i>Reset
+                        </a>
+                    </div>
 
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th class="fs-5 fw-semibold text-center">GT Asal</th>
-                                <th class="fs-5 fw-semibold text-center">Gambar GT Asal</th>
-                                <th class="fs-5 fw-semibold text-center">GT Tujuan</th>
-                                <th class="fs-5 fw-semibold text-center">Gambar GT Asal</th>
-                                <th class="fs-5 fw-semibold text-center">Tarif</th>
-                                <th class="fs-5 fw-semibold"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($tols as $data): ?>
-                            <tr>
-                                <td class="fs-6 fw-light text-center align-content-center"><?= $data['tol_asal'] ?></td>
-                                <td class="fs-6 fw-light text-center "><img src="uploads/<?= $data['gambar_asal'] ?>" width="100"> </td>
-                                
-                                <td class="fs-6 fw-light text-center align-content-center"><?= $data['tol_tujuan'] ?></td>
-                                <td class="fs-6 fw-light text-center"><img src="uploads/<?= $data['gambar_tujuan'] ?>" width="100">
-                                </td>
-                              <td class="fs-6 fw-light text-center align-content-center"><?= number_format($data['harga'], 0, ',', '.') ?></td>
-                                <td class="align-content-center">
-                                    <div class="text-center me-3 d-flex justify-content-end ">
-                                    <a href="edit.php?id=<?= $data['id'] ?>"
-                                        class="btn button1 text-white px-4 py-1 me-2 ">Edit</a>
-                                    <a href="hapus.php?id=<?= $data['id'] ?>" class="btn btn-danger py-1 "
+                    <div class="col-3 align-self-center d-flex justify-content-end">
+                        <a href="tambah.php" class="btn btn-success px-3 py-1">
+                            <i class="bi bi-plus"></i>Tambah Data
+                        </a>
+                    </div>
+                </div>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="fs-5 fw-semibold text-center">GT Asal</th>
+                            <th class="fs-5 fw-semibold text-center">Gambar GT Asal</th>
+                            <th class="fs-5 fw-semibold text-center">GT Tujuan</th>
+                            <th class="fs-5 fw-semibold text-center">Gambar GT Tujuan</th>
+                            <th class="fs-5 fw-semibold text-center">Tarif</th>
+                            <th class="fs-5 fw-semibold text-center">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($tols as $data): ?>
+                        <tr>
+                            <td class="fs-6 fw-light text-center align-content-center"><?= $data['tol_asal'] ?></td>
+                            <td class="fs-6 fw-light text-center">
+                                <img src="uploads/<?= $data['gambar_asal']; ?>?t=<?= time(); ?>" width="100">
+                            </td>
+                            <td class="fs-6 fw-light text-center align-content-center"><?= $data['tol_tujuan'] ?></td>
+                            <td class="fs-6 fw-light text-center">
+                                <img src="uploads/<?= $data['gambar_tujuan']; ?>?t=<?= time(); ?>" width="100">
+                            </td>
+                            <td class="fs-6 fw-light text-center align-content-center">
+                                <?= number_format($data['harga'], 0, ',', '.') ?>
+                            </td>
+                            <td class="align-content-center">
+                                <div class="text-center me-3 d-flex justify-content-end">
+                                    <a href="edit.php?id=<?= $data['id'] ?>" class="btn button1 text-white px-4 py-1 me-2">Edit</a>
+                                    <a href="hapus.php?id=<?= $data['id'] ?>" class="btn btn-danger py-1"
                                         onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</a>
-                                    </div>
-                                    
-                                </td>
-                            </tr>
-                            <?php endforeach; ?>
+                                </div>
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
 
-                            <?php if (empty($tols)): ?>
-                            <tr>
-                                <td colspan="6" class="text-center">Tidak ada data ditemukan</td>
-                            </tr>
-                            <?php endif; ?>
-                        </tbody>
-
-                    </table>
-
-
-                </div>
-
-
-
-
-
+                        <?php if (empty($tols)): ?>
+                        <tr>
+                            <td colspan="6" class="text-center">Tidak ada data ditemukan</td>
+                        </tr>
+                        <?php endif; ?>
+                    </tbody>
+                </table>
             </form>
         </div>
     </div>
 </body>
-
 </html>

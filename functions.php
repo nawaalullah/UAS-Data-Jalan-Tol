@@ -69,23 +69,38 @@ function updateTol($id, $asal, $gambarAsalFile, $tujuan, $gambarTujuanFile, $har
     $gambar_asal = $dataLama['gambar_asal'];
     $gambar_tujuan = $dataLama['gambar_tujuan'];
 
-    // Jika ada gambar baru diupload
+    // Proses upload gambar asal jika ada file baru
     if (!empty($gambarAsalFile['name'])) {
-        if (file_exists("uploads/$gambar_asal")) {
-            unlink("uploads/$gambar_asal");
+        $gambarBaru = uploadGambar($gambarAsalFile);
+        if ($gambarBaru) {
+            // Hapus gambar lama
+            if (!empty($gambar_asal) && file_exists("uploads/$gambar_asal")) {
+                unlink("uploads/$gambar_asal");
+            }
+            $gambar_asal = $gambarBaru;
         }
-        $gambar_asal = uploadGambar($gambarAsalFile);
     }
 
+    // Proses upload gambar tujuan jika ada file baru
     if (!empty($gambarTujuanFile['name'])) {
-        if (file_exists("uploads/$gambar_tujuan")) {
-            unlink("uploads/$gambar_tujuan");
+        $gambarBaru = uploadGambar($gambarTujuanFile);
+        if ($gambarBaru) {
+            // Hapus gambar lama
+            if (!empty($gambar_tujuan) && file_exists("uploads/$gambar_tujuan")) {
+                unlink("uploads/$gambar_tujuan");
+            }
+            $gambar_tujuan = $gambarBaru;
         }
-        $gambar_tujuan = uploadGambar($gambarTujuanFile);
     }
 
-    return mysqli_query($conn, "UPDATE tol SET tol_asal='$asal', gambar_asal='$gambar_asal',
-        tol_tujuan='$tujuan', gambar_tujuan='$gambar_tujuan', harga=$harga WHERE id=$id");
+    // Update ke database
+    return mysqli_query($conn, "UPDATE tol 
+        SET tol_asal='$asal', 
+            gambar_asal='$gambar_asal',
+            tol_tujuan='$tujuan', 
+            gambar_tujuan='$gambar_tujuan', 
+            harga=$harga 
+        WHERE id=$id");
 }
 
 // Hapus data tol
@@ -95,10 +110,10 @@ function deleteTol($id) {
     $data = mysqli_fetch_assoc(getTolById($id));
 
     if ($data) {
-        if (file_exists("uploads/{$data['gambar_asal']}")) {
+        if (!empty($data['gambar_asal']) && file_exists("uploads/{$data['gambar_asal']}")) {
             unlink("uploads/{$data['gambar_asal']}");
         }
-        if (file_exists("uploads/{$data['gambar_tujuan']}")) {
+        if (!empty($data['gambar_tujuan']) && file_exists("uploads/{$data['gambar_tujuan']}")) {
             unlink("uploads/{$data['gambar_tujuan']}");
         }
     }
