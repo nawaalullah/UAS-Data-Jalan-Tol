@@ -26,6 +26,11 @@ if (isset($_POST['register'])) {
     <link rel="Icon" type="png" href="img/jasamarga.png">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body style="background-color: #efeff0;" class="d-flex justify-content-center align-items-center min-vh-100">
@@ -47,8 +52,8 @@ if (isset($_POST['register'])) {
 
                     <div class="mb-3">
                         <label for="email" class="form-label fs-6 text-secondary">Email</label>
-                        <input type="email" class="form-control" id="email" name="email"
-                            placeholder="Masukkan Email" required>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan Email"
+                            required>
                     </div>
 
                     <div class="mb-4">
@@ -62,7 +67,8 @@ if (isset($_POST['register'])) {
 
 
                     <div class=" ">
-                         <p class="fs-6 mt-3 text-center "> <span class="text-secondary">Sudah Memiliki Akun?</span> <a href="login.php">Login</a></p>
+                        <p class="fs-6 mt-3 text-center "> <span class="text-secondary">Sudah Memiliki Akun?</span> <a
+                                href="login.php">Login</a></p>
                     </div>
 
                 </form>

@@ -20,40 +20,48 @@ $tols = getFilteredTol($asal, $tujuan);
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 </head>
 <!-- d-flex justify-content-center align-items-center min-vh-100 -->
+
 <body style="background-color: #d9d9daff;" class="">
-    
+
     <nav class="navbar navbar-expand-lg m-0 p-0 " style="background-color: #1F4A84;">
         <div class="container-fluid ">
             <a class="navbar-brand col-2 p-0" href="#">
-            <img src="img/putih.svg" alt="" class="col-10 ps-4 ms-3">
+                <img src="img/putih.svg" alt="" class="col-10 ps-4 ms-3">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse " id="navbarNav">
-                <ul class="navbar-nav col-12 justify-content-center" >
+                <ul class="navbar-nav col-12 justify-content-center">
                     <li class="nav-item fs-5 me-4 py-3 navbarr">
                         <a class="nav-link text-white" href="tentangkami.php">Tentang Kami</a>
                     </li>
-                    <li class="nav-item fs-5 py-3 me-4 borderactive navbarr" >
-                        <a class="nav-link active fw-semibold text-white " aria-current="page" href="index.php">Data Jalan Tol</a>
+                    <li class="nav-item fs-5 py-3 me-4 borderactive navbarr">
+                        <a class="nav-link active fw-semibold text-white " aria-current="page" href="index.php">Data
+                            Jalan Tol</a>
                     </li>
 
-                    <li class="nav-item fs-5 py-3 me-5 navbarr" >
+                    <li class="nav-item fs-5 py-3 me-5 navbarr">
                         <a class="nav-link text-white " aria-current="page" href="kontak.php">Kontak Kami</a>
                     </li>
-                    
+
                 </ul>
             </div>
         </div>
-         <div class=" d-flex justify-content-end ms-5 ps-5 me-5 ">
-             <a href="logout.php" class="btn rounded-5  ms-5  px-3 py-2 fw-semibold button3" onclick="return confirm('Apakah anda yakin ingin keluar ?')">
-                 <i class="bi bi-box-arrow-right fs-5 text-white"></i>
-             </a>
-         </div>
+        <div class=" d-flex justify-content-end ms-5 ps-5 me-5 ">
+            <a href="logout.php" class="btn rounded-5  ms-5  px-3 py-2 fw-semibold button3"
+                onclick="return confirm('Apakah anda yakin ingin keluar ?')">
+                <i class="bi bi-box-arrow-right fs-5 text-white"></i>
+            </a>
+        </div>
     </nav>
 
 
@@ -65,9 +73,9 @@ $tols = getFilteredTol($asal, $tujuan);
                 <div class="row">
                     <div class="col-12 text-center mt-3 mb-3">
                         <h1 style="margin-bottom: -6px;">Data Jalan Tol </h1>
-                        <small class="text-secondary fw-light" >Jasamarga Tollroad Operator 2025 </small>
+                        <small class="text-secondary fw-light">Jasamarga Tollroad Operator 2025 </small>
                     </div>
-                   
+
                 </div>
 
                 <div class="row mt-4 col-12">
@@ -125,7 +133,8 @@ $tols = getFilteredTol($asal, $tujuan);
                             </td>
                             <td class="align-content-center">
                                 <div class="text-center me-3 d-flex justify-content-end">
-                                    <a href="edit.php?id=<?= $data['id'] ?>" class="btn button1 text-white px-4 py-1 me-2">Edit</a>
+                                    <a href="edit.php?id=<?= $data['id'] ?>"
+                                        class="btn button1 text-white px-4 py-1 me-2">Edit</a>
                                     <a href="hapus.php?id=<?= $data['id'] ?>" class="btn btn-danger py-1"
                                         onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</a>
                                 </div>
@@ -144,4 +153,5 @@ $tols = getFilteredTol($asal, $tujuan);
         </div>
     </div>
 </body>
+
 </html>

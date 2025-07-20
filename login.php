@@ -56,6 +56,7 @@ if (isset($_POST['login'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -63,7 +64,13 @@ if (isset($_POST['login'])) {
     <link rel="Icon" type="png" href="img/jasamarga.png">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body style="background-color: #efeff0;" class="d-flex justify-content-center align-items-center min-vh-100">
     <div class="container">
         <div class="row bg-white rounded-4 d-flex align-items-center">
@@ -75,11 +82,13 @@ if (isset($_POST['login'])) {
                     <h1 class="text-center">Login</h1>
                     <div class="mb-3 mt-5">
                         <label for="username" class="form-label fs-6 text-secondary">Username</label>
-                        <input type="text" class="form-control" id="username" name="username" placeholder="Masukan Username" required>
+                        <input type="text" class="form-control" id="username" name="username"
+                            placeholder="Masukan Username" required>
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label fs-6 text-secondary">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Masukan Password" required>
+                        <input type="password" class="form-control" id="password" name="password"
+                            placeholder="Masukan Password" required>
                     </div>
                     <div class="form-check mb-3">
                         <input class="form-check-input" type="checkbox" value="1" id="rememberme" name="remember">
@@ -87,19 +96,20 @@ if (isset($_POST['login'])) {
                     </div>
 
                     <div class=" ">
-                        <button type="submit" name="login" class="btn button1 px-5 rounded-5 d-flex mx-auto fs-5">Login</button>
-                         <p class="fs-6 mt-3 text-center "> <span class="text-secondary">Belum Memiliki Akun?</span> <a href="register.php">Registrasi</a></p>
+                        <button type="submit" name="login"
+                            class="btn button1 px-5 rounded-5 d-flex mx-auto fs-5">Login</button>
+                        <p class="fs-6 mt-3 text-center "> <span class="text-secondary">Belum Memiliki Akun?</span> <a
+                                href="register.php">Registrasi</a></p>
                     </div>
-                    
 
-                    
-                       
-                    </div>
-                </form>
+
+
+
             </div>
+            </form>
         </div>
+    </div>
     </div>
 </body>
 
 </html>
-
