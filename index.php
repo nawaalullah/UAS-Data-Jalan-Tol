@@ -38,7 +38,7 @@ $tols = getFilteredTol($asal, $tujuan);
                     <li class="nav-item fs-5 me-4 py-3 navbarr">
                         <a class="nav-link text-white" href="#">Tentang Kami</a>
                     </li>
-                    <li class="nav-item fs-5 py-3 me-5 borderactive navbarr" >
+                    <li class="nav-item fs-5 py-3 me-4 borderactive navbarr" >
                         <a class="nav-link active fw-semibold text-white " aria-current="page" href="#">Data Jalan Tol</a>
                     </li>
 
@@ -70,18 +70,18 @@ $tols = getFilteredTol($asal, $tujuan);
                 </div>
 
                 <div class="row mt-4 col-12">
-                    <div class="col-3 pb-3">
+                    <div class="col-3 align-self-center">
                         <p for="asal" class="form-label fs-6">Asal Gerbang Tol</p>
                         <input type="text" class="form-control pe-5" id="asal" name="asal"
                             placeholder="Masukan Tol Asal" value="<?= $asal ?>">
                     </div>
-                    <div class="col-3">
+                    <div class="col-3 align-self-center ">
                         <p for="tujuan" class="form-label fs-6">Tujuan Gerbang Tol</p>
                         <input type="text" class="form-control pe-5" id="tujuan" name="tujuan"
                             placeholder="Masukan Tol Tujuan" value="<?= $tujuan ?>">
                     </div>
 
-                    <div class="col-3 align-self-center">
+                    <div class="col-3 align-self-end mb-1 ">
                         <button type="submit" class="btn button1 px-4 py-1">
                             <i class="bi bi-search me-2"></i>Cari
                         </button>
@@ -90,14 +90,14 @@ $tols = getFilteredTol($asal, $tujuan);
                         </a>
                     </div>
 
-                    <div class="col-3 align-self-center d-flex justify-content-end">
+                    <div class="col-3 align-self-end mb-1 d-flex justify-content-end ">
                         <a href="tambah.php" class="btn btn-success px-3 py-1">
-                            <i class="bi bi-plus"></i>Tambah Data
+                            <i class="bi bi-plus me-2"></i>Tambah Data
                         </a>
                     </div>
                 </div>
 
-                <table class="table table-striped">
+                <table class="table table-striped mt-3">
                     <thead>
                         <tr>
                             <th class="fs-5 fw-semibold text-center">GT Asal</th>
@@ -105,7 +105,7 @@ $tols = getFilteredTol($asal, $tujuan);
                             <th class="fs-5 fw-semibold text-center">GT Tujuan</th>
                             <th class="fs-5 fw-semibold text-center">Gambar GT Tujuan</th>
                             <th class="fs-5 fw-semibold text-center">Tarif</th>
-                            <th class="fs-5 fw-semibold text-center">Aksi</th>
+                            <th class="fs-5 fw-semibold text-center"></th>
                         </tr>
                     </thead>
                     <tbody>
