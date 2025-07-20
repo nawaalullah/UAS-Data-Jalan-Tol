@@ -3,22 +3,32 @@ body {
 }
 .button1{
     color : white;
-    background-color : #0849BC;
+    background-color : #1F4A84;
 }
 .button1:hover{
     color : white;
-    background-color : #063C9C;
+    background-color : #1F4A84;
 }
 
 .button2{
-    color : #0849BC;
+    color : #1F4A84;
     background-color : white;
-    border : 1px solid #0849BC;
+    border : 1px solid #1F4A84;
 }
 .button2:hover{
     color : white;
-    background-color : #0849BC;
+    background-color : #1F4A84;
 }
+.button3{
+    color : white;
+  
+}
+.button3:hover{
+    color : #1F4A84;
+    border :1px solid white;
+}
+
+
 
 .borderactive {
     position: relative;
@@ -32,17 +42,17 @@ body {
     bottom: 0;
     height: 5px;
     width: 100%;
-    background-color: #0849BC;
+    background-color: #ffffffff;
     transition: all 0.3s ease-in-out;
 }
 
 /* ✨ Tambahan: Efek Hover (Misal: perbesar garis bawah saat di-hover) */
 .borderactive:hover::after {
     height: 7px;
-    background-color: #063a99; /* Warna lebih gelap saat hover (opsional) */
+    background-color: #cececeff; /* Warna lebih gelap saat hover (opsional) */
 }
 
-.navbar:hover{
-background-color: rgba(14, 47, 107, 0.11)/* Warna lebih gelap saat hover (opsional) */
+.navbarr:hover{
+background-color: rgba(150, 150, 150, 0.2)/* Warna lebih gelap saat hover (opsional) */
 }
 

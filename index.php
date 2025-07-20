@@ -24,10 +24,10 @@ $tols = getFilteredTol($asal, $tujuan);
 <!-- d-flex justify-content-center align-items-center min-vh-100 -->
 <body style="background-color: #d9d9daff;" class="">
     
-    <nav class="navbar navbar-expand-lg m-0 p-0 bg-white">
+    <nav class="navbar navbar-expand-lg m-0 p-0 " style="background-color: #1F4A84;">
         <div class="container-fluid ">
             <a class="navbar-brand col-2 p-0" href="#">
-            <img src="img/jasa marga.png" alt="" class="col-10 ps-4 ms-3">
+            <img src="img/putih.svg" alt="" class="col-10 ps-4 ms-3">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,19 +35,19 @@ $tols = getFilteredTol($asal, $tujuan);
             </button>
             <div class="collapse navbar-collapse " id="navbarNav">
                 <ul class="navbar-nav col-12 justify-content-center" >
-                    <li class="nav-item fs-5 me-4 py-3 navbar">
-                        <a class="nav-link" href="#">Tentang Kami</a>
+                    <li class="nav-item fs-5 me-4 py-3 navbarr">
+                        <a class="nav-link text-white" href="#">Tentang Kami</a>
                     </li>
-                    <li class="nav-item fs-5 py-3 me-5 borderactive navbar" >
-                        <a class="nav-link active fw-semibold " aria-current="page" href="#">Data Jalan Tol</a>
+                    <li class="nav-item fs-5 py-3 me-5 borderactive navbarr" >
+                        <a class="nav-link active fw-semibold text-white " aria-current="page" href="#">Data Jalan Tol</a>
                     </li>
                     
                 </ul>
             </div>
         </div>
          <div class=" d-flex justify-content-end ms-5 ps-5 me-5 ">
-             <a href="logout.php" class="btn rounded-5  ms-5 button2 px-3 py-2 fw-semibold">
-                 <i class="bi bi-box-arrow-right"></i>
+             <a href="logout.php" class="btn rounded-5  ms-5  px-3 py-2 fw-semibold button3" onclick="return confirm('Apakah anda yakin ingin keluar ?')">
+                 <i class="bi bi-box-arrow-right fs-5 text-white"></i>
              </a>
          </div>
     </nav>
