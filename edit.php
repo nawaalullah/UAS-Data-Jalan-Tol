@@ -95,7 +95,7 @@ if (isset($_POST['submit'])) {
                         <!-- Tol Asal -->
                         <div class="mb-3">
                             <label for="asal" class="form-label fs-6">Asal Gerbang Tol</label>
-                            <input type="text" class="form-control " name="asal" id="asal"
+                            <input type="text" class="form-control " name="tol_asal" id="asal"
                                 placeholder="Masukkan Nama GT Asal" value="<?= $data['tol_asal'] ?>" required>
                         </div>
 
@@ -120,7 +120,7 @@ if (isset($_POST['submit'])) {
                         <!-- Tol Tujuan -->
                         <div class="mb-3">
                             <label for="tujuan" class="form-label fs-6">Tujuan Gerbang Tol</label>
-                            <input type="text" class="form-control" name="tujuan" id="tujuan"
+                            <input type="text" class="form-control" name="tol_tujuan" id="tujuan"
                                 placeholder="Masukkan Nama GT Tujuan" value="<?= $data['tol_tujuan'] ?>" required>
                         </div>
 
@@ -135,7 +135,7 @@ if (isset($_POST['submit'])) {
                                 </div>
                                 <div class="col-8 h-25 ">
                                     <input class="form-control col-5 mt-5" type="file" id="gambar_tujuan"
-                                        name="gambar_tujuab" required>
+                                        name="gambar_tujuan" required>
                                 </div>
 
                             </div>
