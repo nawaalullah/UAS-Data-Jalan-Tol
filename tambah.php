@@ -25,37 +25,68 @@ if (isset($_POST['submit'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Jalan Tol</title>
+    <title>Tambah Data Jalan Tol</title>
     <link rel="Icon" type="png" href="img/jasamarga.png">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body style="background-color: #efeff0;" class="d-flex justify-content-center align-items-center min-vh-100">
-    <div class="container">
+<body style="background-color: #d9d9daff;" class="">
+    <nav class="navbar navbar-expand-lg m-0 p-0 " style="background-color: #1F4A84;">
+        <div class="container-fluid ">
+            <a class="navbar-brand col-2 p-0" href="#">
+            <img src="img/putih.svg" alt="" class="col-10 ps-4 ms-3">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarNav">
+                <ul class="navbar-nav col-12 justify-content-center" >
+                    <li class="nav-item fs-5 me-4 py-3 navbarr">
+                        <a class="nav-link text-white" href="#">Tentang Kami</a>
+                    </li>
+                    <li class="nav-item fs-5 py-3 me-4 borderactive navbarr" >
+                        <a class="nav-link active fw-semibold text-white " aria-current="page" href="index.php">Data Jalan Tol</a>
+                    </li>
+
+                    <li class="nav-item fs-5 py-3 me-5 navbarr" >
+                        <a class="nav-link text-white " aria-current="page" href="kontak.php">Kontak Kami</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+         <div class=" d-flex justify-content-end ms-5 ps-5 me-5 ">
+             <a href="logout.php" class="btn rounded-5  ms-5  px-3 py-2 fw-semibold button3" onclick="return confirm('Apakah anda yakin ingin keluar ?')">
+                 <i class="bi bi-box-arrow-right fs-5 text-white"></i>
+             </a>
+         </div>
+    </nav>
+    <div class="col-8 mt-5 mx-auto">
         <div class="bg-white rounded-4 d-flex align-items-center p-4  ">
-            <div class="col-12">
+            <div class="col-11 mx-auto">
+                <a type="button" href="index.php" class="btn button2 px-3 py-1 me-3 rounded-5">
+                    <i class="bi bi-arrow-left "></i>
+                </a>
+
                 <div class="row">
-                    <div class="col-6">
-                        <h1>Tambah Data Jalan Tol </h1>
-                    </div>
-                    <div class="col-6">
-                        <div class="col-12 d-flex justify-content-end ">
-                            <a href="index.php" class="bi bi-arrow-right"></a>
-                        </div>
+                    <div class="col-12 text-center mb-3">
+                        <h1 style="margin-bottom: -6px;">Tambah Data Jalan Tol </h1>
+                        <small class="text-secondary fw-light" >Jasamarga Tollroad Operator 2025 </small>
                     </div>
                 </div>
 <form method="POST" enctype="multipart/form-data" >
-<div class="col-4">
+<div class="col-5">
     <!-- Tol Asal -->
     <div class="mb-3">
-        <label for="asal" class="form-label">Tol Asal:</label>
-        <input type="text" class="form-control fs-6" name="asal" id="asal" required>
+        <label for="asal" class="form-label fs-6">Asal Gerbang Tol</label>
+        <input type="text" class="form-control " name="asal" id="asal" placeholder="Masukkan Nama GT Asal" required>
     </div>
 
     <!-- Gambar Asal -->
     <div class="mb-3">
-        <label for="gambar_asal" class="form-label">Gambar Asal:</label>
+        <label for="gambar_asal" class="form-label fs-6">Gambar GT Asal</label>
         <div class="input-group">
             <span class="input-group-text"><i class="bi bi-image"></i></span>
             <input class="form-control" type="file" id="gambar_asal" name="gambar_asal" required>
@@ -64,13 +95,13 @@ if (isset($_POST['submit'])) {
 
     <!-- Tol Tujuan -->
     <div class="mb-3">
-        <label for="tujuan" class="form-label">Tol Tujuan:</label>
-        <input type="text" class="form-control fs-6" name="tujuan" id="tujuan" required>
+        <label for="tujuan" class="form-label fs-6">Tujuan Gerbang Tol</label>
+        <input type="text" class="form-control" name="tujuan" id="tujuan"placeholder="Masukkan Nama GT Tujuan" required>
     </div>
 
     <!-- Gambar Tujuan -->
     <div class="mb-3">
-        <label for="gambar_tujuan" class="form-label">Gambar Tujuan:</label>
+        <label for="gambar_tujuan" class="form-label fs-6">Gambar GT Tujuan</label>
         <div class="input-group">
             <span class="input-group-text"><i class="bi bi-image"></i></span>
             <input class="form-control" type="file" id="gambar_tujuan" name="gambar_tujuan" required>
@@ -79,14 +110,22 @@ if (isset($_POST['submit'])) {
 
     <!-- Harga -->
     <div class="mb-3">
-        <label for="harga" class="form-label">Harga:</label>
-        <input type="number" class="form-control pe-5 fs-6" name="harga" id="harga" required>
+        <label for="harga" class="form-label fs-6">Tarif Tol</label>
+        <input type="number" class="form-control " name="harga" id="harga" placeholder="Masukkan Tarif Tol" required>
     </div>
+</div>
 
     <!-- Tombol Submit -->
-    <button type="submit" name="submit" class="btn btn-primary px-3 py-2">
-        <i class="bi bi-plus-circle me-2"></i>Tambah Data
-    </button>
+     <div class="d-flex justify-content-end">
+         
+        <button type="submit" name="submit" class="btn button1 px-3 py-1 ">
+            <i class="bi bi-plus me-2"></i>Tambah Data
+        </button>
+     </div>
+     
+    
 
 </form>
+</body>
+</html>
 

@@ -39,7 +39,7 @@ $tols = getFilteredTol($asal, $tujuan);
                         <a class="nav-link text-white" href="#">Tentang Kami</a>
                     </li>
                     <li class="nav-item fs-5 py-3 me-4 borderactive navbarr" >
-                        <a class="nav-link active fw-semibold text-white " aria-current="page" href="#">Data Jalan Tol</a>
+                        <a class="nav-link active fw-semibold text-white " aria-current="page" href="index.php">Data Jalan Tol</a>
                     </li>
 
                     <li class="nav-item fs-5 py-3 me-5 navbarr" >
@@ -63,8 +63,9 @@ $tols = getFilteredTol($asal, $tujuan);
             <form method="get" class="col-12">
 
                 <div class="row">
-                    <div class="col-6">
-                        <h1>Data Jalan Tol </h1>
+                    <div class="col-12 text-center mt-3 mb-3">
+                        <h1 style="margin-bottom: -6px;">Data Jalan Tol </h1>
+                        <small class="text-secondary fw-light" >Jasamarga Tollroad Operator 2025 </small>
                     </div>
                    
                 </div>
