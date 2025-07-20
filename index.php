@@ -21,9 +21,40 @@ $tols = getFilteredTol($asal, $tujuan);
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
+<!-- d-flex justify-content-center align-items-center min-vh-100 -->
+<body style="background-color: #d9d9daff;" class="">
+    
+    <nav class="navbar navbar-expand-lg m-0 p-0 bg-white">
+        <div class="container-fluid ">
+            <a class="navbar-brand col-2 p-0" href="#">
+            <img src="img/jasa marga.png" alt="" class="col-10 ps-4 ms-3">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarNav">
+                <ul class="navbar-nav col-12 justify-content-center" >
+                    <li class="nav-item fs-5 me-4 py-3 navbar">
+                        <a class="nav-link" href="#">Tentang Kami</a>
+                    </li>
+                    <li class="nav-item fs-5 py-3 me-5 borderactive navbar" >
+                        <a class="nav-link active fw-semibold " aria-current="page" href="#">Data Jalan Tol</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+         <div class=" d-flex justify-content-end ms-5 ps-5 me-5 ">
+             <a href="logout.php" class="btn rounded-5  ms-5 button2 px-3 py-2 fw-semibold">
+                 <i class="bi bi-box-arrow-right"></i>
+             </a>
+         </div>
+    </nav>
 
-<body style="background-color: #efeff0;" class="d-flex justify-content-center align-items-center min-vh-100">
-    <div class="container">
+
+
+    <div class="container mt-5">
         <div class="bg-white rounded-4 d-flex align-items-center p-4">
             <form method="get" class="col-12">
 
@@ -31,13 +62,7 @@ $tols = getFilteredTol($asal, $tujuan);
                     <div class="col-6">
                         <h1>Data Jalan Tol </h1>
                     </div>
-                    <div class="col-6">
-                        <div class="col-12 d-flex justify-content-end">
-                            <a href="logout.php" class="btn button2 rounded-5 me-3">
-                                <i class="bi bi-box-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
+                   
                 </div>
 
                 <div class="row mt-4 col-12">
@@ -68,7 +93,7 @@ $tols = getFilteredTol($asal, $tujuan);
                     </div>
                 </div>
 
-                <table class="table">
+                <table class="table table-striped">
                     <thead>
                         <tr>
                             <th class="fs-5 fw-semibold text-center">GT Asal</th>
