@@ -24,13 +24,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav col-12 justify-content-center">
                     <li class="nav-item fs-5 me-4 py-3 navbarr">
-                        <a class="nav-link text-white" href="#">Tentang Kami</a>
+                        <a class="nav-link text-white" href="tentangkami.php">Tentang Kami</a>
                     </li>
-                    <li class="nav-item fs-5 py-3 me-4 borderactive navbarr">
-                        <a class="nav-link active fw-semibold text-white" aria-current="page" href="index.php">Data Jalan Tol</a>
+                    <li class="nav-item fs-5 py-3 me-4 navbarr">
+                        <a class="nav-link text-white" aria-current="page" href="index.php">Data Jalan Tol</a>
                     </li>
-                    <li class="nav-item fs-5 py-3 me-5 navbarr">
-                        <a class="nav-link text-white" href="kontak.php">Kontak Kami</a>
+                    <li class="nav-item fs-5  py-3 me-5 borderactive navbarr">
+                        <a class="nav-link active fw-semibold text-white" href="kontak.php">Kontak Kami</a>
                     </li>
                 </ul>
             </div>
@@ -45,12 +45,9 @@
     <div class="col-8 mt-5 mx-auto">
         <div class="bg-white rounded-4 d-flex align-items-center p-4 mb-5">
             <div class="col-11 mx-auto">
-                <a href="index.php" class="btn button2 px-3 py-1 me-3 rounded-5">
-                    <i class="bi bi-arrow-left"></i>
-                </a>
                 <div class="row">
                     <div class="col-12 text-center mb-3">
-                        <h1 style="margin-bottom: -6px;">Hubungi Kami</h1>
+                        <h1 style="margin-bottom: -6px;">Kontak Kami</h1>
                         <small class="text-secondary fw-light">Jasamarga Tollroad Operator 2025</small>
                     </div>
                 </div>
@@ -61,30 +58,30 @@
                         <div class="col-md-6 mb-4">
                             <form onsubmit="sendMessage(); return false;">
                                 <div class="mb-3">
-                                    <label for="name">Your Name</label>
-                                    <input type="text" id="name" placeholder="Your Name" class="form-control shadow-none" required>
+                                    <label for="name">Nama Anda</label>
+                                    <input type="text" id="name" placeholder="Masukkan Nama Anda" class="form-control shadow-none" required>
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="email">Email</label>
-                                    <input type="email" id="email" placeholder="email" class="form-control shadow-none" required>
+                                    <input type="email" id="email" placeholder="Masukkan Email Anda" class="form-control shadow-none" required>
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="message">Your Message</label>
-                                    <textarea id="message" cols="30" rows="3" class="form-control shadow-none" required></textarea>
+                                    <label for="message">Pesan Anda</label>
+                                    <textarea id="message" placeholder="Masukkan Pesan Anda" cols="30" rows="3" class="form-control shadow-none" required></textarea>
                                 </div>
 
-                                <button class="btn btn-primary px-4" type="submit">Send Message</button>
+                                <button class="btn button1 px-4 py-1 mt-3" type="submit">Kirim Pesan</button>
                             </form>
                         </div>
 
                         <!-- Maps -->
                         <div class="col-md-6">
-                            <h2 class="text-center">Lokasi Perusahaan</h2>
+                            
                             <div class="ratio ratio-4x3">
                                 <iframe 
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d507266.9497508056!2d106.92826474027962!3d-6.644059906546047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e67c27dd4c51%3A0x17a4ecf4d1cfb49c!2sPT%20Jasa%20Marga%20RO3%20JMT%20Ruas%20Purbaleunyi!5e0!3m2!1sid!2sid!4v1753014505904!5m2!1sid!2sid" 
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.5689873989136!2d106.87621537475114!3d-6.290898693698114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f29c898a114b%3A0xbdc38eee360b6262!2sPT%20Jasa%20Marga%20(Persero)%20Tbk!5e1!3m2!1sid!2sid!4v1753024038467!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" 
                                     width="100%" 
                                     height="100%" 
                                     style="border:0;" 

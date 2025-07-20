@@ -1,58 +1,55 @@
 body {
-    font-family: 'Poppins';font-size: 22px;
+  font-family: "Poppins";
+  font-size: 22px;
 }
-.button1{
-    color : white;
-    background-color : #1F4A84;
+.button1 {
+  color: white;
+  background-color: #1f4a84;
 }
-.button1:hover{
-    color : white;
-    background-color : #1a3c69ff;
-}
-
-.button2{
-    color : #1F4A84;
-    background-color : white;
-    border : 1px solid #1F4A84;
-}
-.button2:hover{
-    color : white;
-    background-color : #1F4A84;
-}
-.button3{
-    color : white;
-  
-}
-.button3:hover{
-    color : #1F4A84;
-    border :1px solid white;
+.button1:hover {
+  color: white;
+  background-color: #1a3c69ff;
 }
 
-
+.button2 {
+  color: #1f4a84;
+  background-color: white;
+  border: 1px solid #1f4a84;
+}
+.button2:hover {
+  color: white;
+  background-color: #1f4a84;
+}
+.button3 {
+  color: white;
+}
+.button3:hover {
+  color: #1f4a84;
+  border: 1px solid white;
+}
 
 .borderactive {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 }
 
 .borderactive::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 5px;
-    width: 100%;
-    background-color: #ffffffff;
-    transition: all 0.3s ease-in-out;
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 5px;
+  width: 100%;
+  background-color: #ffffffff;
+  transition: all 0.3s ease-in-out;
 }
 
 /* ✨ Tambahan: Efek Hover (Misal: perbesar garis bawah saat di-hover) */
 .borderactive:hover::after {
-    height: 7px;
-    background-color: #cececeff; /* Warna lebih gelap saat hover (opsional) */
+  height: 7px;
+  background-color: #cececeff; /* Warna lebih gelap saat hover (opsional) */
 }
 
-.navbarr:hover{
-background-color: rgba(150, 150, 150, 0.2)/* Warna lebih gelap saat hover (opsional) */
+.navbarr:hover {
+  background-color: rgba(150, 150, 150, 0.2); /* Warna lebih gelap saat hover (opsional) */
 }
-
