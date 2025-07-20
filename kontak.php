@@ -37,7 +37,8 @@
             <div class="col-md-6">
                 <h2 class="text-dark mb-4">Lokasi Perusahaan</h2>
                 <div class="ratio ratio-4x3">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d507266.9497508056!2d106.92826474027962!3d-6.644059906546047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e67c27dd4c51%3A0x17a4ecf4d1cfb49c!2sPT%20Jasa%20Marga%20RO3%20JMT%20Ruas%20Purbaleunyi!5e0!3m2!1sid!2sid!4v1753014505904!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d507266.9497508056!2d106.92826474027962!3d-6.644059906546047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e67c27dd4c51%3A0x17a4ecf4d1cfb49c!2sPT%20Jasa%20Marga%20RO3%20JMT%20Ruas%20Purbaleunyi!5e0!3m2!1sid!2sid!4v1753014505904!5m2!1sid!2sid" 
                         width="100%" 
                         height="100%" 
                         style="border:0;" 
