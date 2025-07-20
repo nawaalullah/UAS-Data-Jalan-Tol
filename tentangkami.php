@@ -39,7 +39,7 @@
         .carousel-indicators [data-bs-target] {
             background-color: white;
         }
-        background-color: #f0f2f5;{
+        .background-color{
             font-family: 'Segoe UI', sans-serif;
         }
      .about-img {
