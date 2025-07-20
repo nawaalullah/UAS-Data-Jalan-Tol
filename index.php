@@ -46,10 +46,7 @@ $tols = getFilteredTol($asal, $tujuan);
                                     class="bi bi-box-arrow-right"></i></a>
                         </div>
                     </div>
-
                 </div>
-
-
 
                 <div class="">
                     <div class="row mt-4 col-12 ">
@@ -81,29 +78,32 @@ $tols = getFilteredTol($asal, $tujuan);
                     <table class="table">
                         <thead>
                             <tr>
-                                <th class="fs-5 fw-semibold">GT Asal</th>
-                                <th class="fs-5 fw-semibold">Gambar GT Asal</th>
-                                <th class="fs-5 fw-semibold">GT Tujuan</th>
-                                <th class="fs-5 fw-semibold">Gambar GT Asal</th>
-                                <th class="fs-5 fw-semibold">Tarif</th>
+                                <th class="fs-5 fw-semibold text-center">GT Asal</th>
+                                <th class="fs-5 fw-semibold text-center">Gambar GT Asal</th>
+                                <th class="fs-5 fw-semibold text-center">GT Tujuan</th>
+                                <th class="fs-5 fw-semibold text-center">Gambar GT Asal</th>
+                                <th class="fs-5 fw-semibold text-center">Tarif</th>
                                 <th class="fs-5 fw-semibold"></th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php foreach ($tols as $data): ?>
                             <tr>
-                                <td class="fs-6 fw-light"><?= $data['tol_asal'] ?></td>
-                                <td class="fs-6 fw-light"><img src="uploads/<?= $data['gambar_asal'] ?>" width="100">
+                                <td class="fs-6 fw-light text-center align-content-center"><?= $data['tol_asal'] ?></td>
+                                <td class="fs-6 fw-light text-center "><img src="uploads/<?= $data['gambar_asal'] ?>" width="100"> </td>
+                                
+                                <td class="fs-6 fw-light text-center align-content-center"><?= $data['tol_tujuan'] ?></td>
+                                <td class="fs-6 fw-light text-center"><img src="uploads/<?= $data['gambar_tujuan'] ?>" width="100">
                                 </td>
-                                <td class="fs-6 fw-light"><?= $data['tol_tujuan'] ?></td>
-                                <td class="fs-6 fw-light"><img src="uploads/<?= $data['gambar_tujuan'] ?>" width="100">
-                                </td>
-                                <td class="fs-6 fw-light"><?= $data['harga'] ?></td>
-                                <td>
+                              <td class="fs-6 fw-light text-center align-content-center"><?= number_format($data['harga'], 0, ',', '.') ?></td>
+                                <td class="align-content-center">
+                                    <div class="text-center me-3 d-flex justify-content-end ">
                                     <a href="edit.php?id=<?= $data['id'] ?>"
-                                        class="btn button1 text-white px-4 py-1">Edit</a>
-                                    <a href="hapus.php?id=<?= $data['id'] ?>" class="btn btn-danger py-1 mt-2"
+                                        class="btn button1 text-white px-4 py-1 me-2 ">Edit</a>
+                                    <a href="hapus.php?id=<?= $data['id'] ?>" class="btn btn-danger py-1 "
                                         onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</a>
+                                    </div>
+                                    
                                 </td>
                             </tr>
                             <?php endforeach; ?>
