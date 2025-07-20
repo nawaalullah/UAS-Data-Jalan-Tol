@@ -41,6 +41,10 @@ $tols = getFilteredTol($asal, $tujuan);
                     <li class="nav-item fs-5 py-3 me-5 borderactive navbarr" >
                         <a class="nav-link active fw-semibold text-white " aria-current="page" href="#">Data Jalan Tol</a>
                     </li>
+
+                    <li class="nav-item fs-5 py-3 me-5 navbarr" >
+                        <a class="nav-link text-white " aria-current="page" href="kontak.php">Kontak Kami</a>
+                    </li>
                     
                 </ul>
             </div>
