@@ -32,7 +32,7 @@ if (isset($_POST['register'])) {
     <div class="container">
         <div class="row bg-white rounded-4 d-flex align-items-center">
             <div class="col-6">
-                <img src="img/register.svg" alt="" class="col-10 d-flex mx-auto">
+                <img src="img/register.svg" alt="" class="col-11 d-flex mx-auto">
             </div>
             <div class="col-6 align-content-center">
                 <form action="" method="post" class="col-10 mx-auto">
@@ -40,30 +40,29 @@ if (isset($_POST['register'])) {
 
                     <!-- Tambahan Input Username -->
                     <div class="mb-3 mt-5">
-                        <label for="username" class="form-label fs-5 text-secondary">Username</label>
+                        <label for="username" class="form-label fs-6 text-secondary">Username</label>
                         <input type="text" class="form-control" id="username" name="username"
                             placeholder="Masukkan Username" required>
                     </div>
 
                     <div class="mb-3">
-                        <label for="email" class="form-label fs-5 text-secondary">Email</label>
+                        <label for="email" class="form-label fs-6 text-secondary">Email</label>
                         <input type="email" class="form-control" id="email" name="email"
                             placeholder="Masukkan Email" required>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="password" class="form-label fs-5 text-secondary">Password</label>
+                    <div class="mb-4">
+                        <label for="password" class="form-label fs-6 text-secondary">Password</label>
                         <input type="password" class="form-control" id="password" name="password"
                             placeholder="Masukan Password" required>
                     </div>
 
                     <button type="submit" name="register"
-                        class="btn button1 px-5 rounded-5 d-flex mx-auto fs-5">Registrasi</button>
+                        class="btn button1 px-5 rounded-5 d-flex mx-auto fs-5 ">Registrasi</button>
 
 
                     <div class=" ">
-                        
-                         <p class="fs-6 mt-2 text-center "> <span class="text-secondary">Sudah Memiliki Akun?</span> <a href="login.php">Login</a></p>
+                         <p class="fs-6 mt-3 text-center "> <span class="text-secondary">Sudah Memiliki Akun?</span> <a href="login.php">Login</a></p>
                     </div>
 
                 </form>

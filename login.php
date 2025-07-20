@@ -66,14 +66,14 @@ if (isset($_POST['login'])) {
                         <label for="password" class="form-label fs-6 text-secondary">Password</label>
                         <input type="password" class="form-control" id="password" name="password" placeholder="Masukan Password" required>
                     </div>
-                    <div class="form-check mb-5">
+                    <div class="form-check mb-3">
                         <input class="form-check-input" type="checkbox" value="1" id="rememberme" name="remember">
                         <label class="form-check-label fs-6" for="rememberme">Remember Me</label>
                     </div>
 
                     <div class=" ">
                         <button type="submit" name="login" class="btn button1 px-5 rounded-5 d-flex mx-auto fs-5">Login</button>
-                         <p class="fs-6 mt-2 text-center "> <span class="text-secondary">Belum Memiliki Akun?</span> <a href="register.php">Registrasi</a></p>
+                         <p class="fs-6 mt-3 text-center "> <span class="text-secondary">Belum Memiliki Akun?</span> <a href="register.php">Registrasi</a></p>
                     </div>
                     
 
