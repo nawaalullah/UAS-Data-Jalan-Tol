@@ -30,9 +30,9 @@ $tols = getFilteredTol($asal, $tujuan);
 
 <body style="background-color: #d9d9daff;" class="">
 
-    <nav class="navbar navbar-expand-lg m-0 p-0 " style="background-color: #1F4A84;">
+    <nav class="navbar navbar-expand-lg m-0 p-0 sticky-top" style="background-color: #1F4A84; z-index: 1030;">
         <div class="container-fluid ">
-            <a class="navbar-brand col-2 p-0" href="#">
+            <a class="navbar-brand col-2 p-0" href="tentangkami.php">
                 <img src="img/putih.svg" alt="" class="col-10 ps-4 ms-3">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -42,7 +42,7 @@ $tols = getFilteredTol($asal, $tujuan);
             <div class="collapse navbar-collapse " id="navbarNav">
                 <ul class="navbar-nav col-12 justify-content-center">
                     <li class="nav-item fs-5 me-4 py-3 navbarr">
-                        <a class="nav-link text-white" href="tentangkami.php">Tentang Kami</a>
+                        <a class="nav-link text-white" href="tentangkami.php">Beranda</a>
                     </li>
                     <li class="nav-item fs-5 py-3 me-4 borderactive navbarr">
                         <a class="nav-link active fw-semibold text-white " aria-current="page" href="index.php">Data

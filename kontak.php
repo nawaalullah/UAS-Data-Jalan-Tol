@@ -17,9 +17,9 @@
 </head>
 
 <body style="background-color: #d9d9daff;">
-    <nav class="navbar navbar-expand-lg m-0 p-0" style="background-color: #1F4A84;">
+    <nav class="navbar navbar-expand-lg m-0 p-0 sticky-top" style="background-color: #1F4A84; z-index: 1030;">
         <div class="container-fluid">
-            <a class="navbar-brand col-2 p-0" href="#">
+            <a class="navbar-brand col-2 p-0" href="tentangkami.php">
                 <img src="img/putih.svg" alt="" class="col-10 ps-4 ms-3">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -29,7 +29,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav col-12 justify-content-center">
                     <li class="nav-item fs-5 me-4 py-3 navbarr">
-                        <a class="nav-link text-white" href="tentangkami.php">Tentang Kami</a>
+                        <a class="nav-link text-white" href="tentangkami.php">Beranda</a>
                     </li>
                     <li class="nav-item fs-5 py-3 me-4 navbarr">
                         <a class="nav-link text-white" aria-current="page" href="index.php">Data Jalan Tol</a>
@@ -120,6 +120,50 @@
             window.open(url);
         }
     </script>
+
+    <!-- Footer -->
+    <footer class="bg-light pt-5 pb-3 border-top">
+        <div class="container">
+            <div class="row text-start text-md-left">
+                <div class="col-md-3 mb-4">
+                    <img src="img/jasa marga.png" alt="Jasa Marga" width="140" class="mb-2">
+                    <p class="text-muted small">Indonesia Highway Corp.</p>
+                </div>
+
+                <div class="col-md-2 mb-4">
+                    <h6 class="fw-bold">Tentang Kami</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-muted text-decoration-none">Disclaimer</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Eksternal Link</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-2 mb-4">
+                    <h6 class="fw-bold">Bantuan</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-muted text-decoration-none">Kalkulator Tarif Tol</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3 mb-4">
+                    <h6 class="fw-bold">Kontak Kami</h6>
+                    <p class="text-muted small mb-1">Plaza Tol Taman Mini Indonesia Indah Jakarta, 13550 Indonesia</p>
+                    <p class="text-muted small mb-1">Telp. +6221 841 3630, +6221 841 3626</p>
+                    <p class="text-muted small">Email. jsmr@jasamarga.co.id</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-3 text-muted small">
+                © 2025. PT Jasa Marga (Persero)
+            </div>
+        </div>
+
+        <div style="position: fixed; bottom: 20px; right: 20px;">
+            <a href="#" class="btn btn-light rounded-circle shadow">
+                <i class="fas fa-arrow-up"></i>
+            </a>
+        </div>
+    </footer>
 </body>
 
 </html>
