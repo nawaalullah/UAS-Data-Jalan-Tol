@@ -21,7 +21,7 @@ if ($from_register) {
         exit();
     }
 }
-
+ 
 // Proses login
 if (isset($_POST['login'])) {
     $username = $_POST['username'];

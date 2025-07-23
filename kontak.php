@@ -34,7 +34,7 @@
         <div class="d-flex justify-content-end ms-5 ps-5 me-5">
         </div>
     </nav>
-
+ 
     <div class="col-8 mt-5 mx-auto">
         <div class="bg-white rounded-4 d-flex align-items-center p-4 mb-5">
             <div class="col-11 mx-auto">
