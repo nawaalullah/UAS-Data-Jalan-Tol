@@ -2,7 +2,7 @@
 include 'db.php';
 include 'functions.php';
 
-session_start();
+// session_start();
 if (!isset($_SESSION['login']) || $_SESSION['login'] !== true) {
     header('Location: index.php');
     exit;
@@ -35,7 +35,7 @@ $tols = getFilteredTol($asal, $tujuan);
 
 <body style="background-color: #d9d9daff;" class="">
 
-    <nav class="navbar navbar-expand-lg m-0 p-0 sticky-top" style="background-color: #1F4A84; z-index: 1030;">
+    <nav class="navbar navbar-expand-lg  sticky-top" style="background-color: #1F4A84; z-index: 1030;">
         <div class="container-fluid ">
             <a class="navbar-brand col-2 p-0" href="tentangkami.php">
                 <img src="img/putih.svg" alt="" class="col-10 ps-4 ms-3">

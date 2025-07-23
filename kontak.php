@@ -17,7 +17,7 @@
 </head>
 
 <body style="background-color: #d9d9daff;">
-    <nav class="navbar navbar-expand-lg m-0 p-0 sticky-top" style="background-color: #1F4A84; z-index: 1030;">
+    <nav class="navbar navbar-expand-lg  sticky-top" style="background-color: #1F4A84; z-index: 1030;">
         <div class="container-fluid">
             <a class="navbar-brand col-2 p-0" href="tentangkami.php">
                 <img src="img/putih.svg" alt="" class="col-10 ps-4 ms-3">
@@ -28,29 +28,19 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav col-12 justify-content-center">
-                    <li class="nav-item fs-5 me-4 py-3 navbarr">
-                        <a class="nav-link text-white" href="tentangkami.php">Beranda</a>
-                    </li>
-                    <li class="nav-item fs-5 py-3 me-4 navbarr">
-                        <a class="nav-link text-white" aria-current="page" href="index.php">Data Jalan Tol</a>
-                    </li>
-                    <li class="nav-item fs-5  py-3 me-5 borderactive navbarr">
-                        <a class="nav-link active fw-semibold text-white" href="kontak.php">Kontak Kami</a>
-                    </li>
                 </ul>
             </div>
         </div>
         <div class="d-flex justify-content-end ms-5 ps-5 me-5">
-            <a href="logout.php" class="btn rounded-5 ms-5 px-3 py-2 fw-semibold button3"
-                onclick="return confirm('Apakah anda yakin ingin keluar ?')">
-                <i class="bi bi-box-arrow-right fs-5 text-white"></i>
-            </a>
         </div>
     </nav>
 
     <div class="col-8 mt-5 mx-auto">
         <div class="bg-white rounded-4 d-flex align-items-center p-4 mb-5">
             <div class="col-11 mx-auto">
+                <a type="button" href="index.php" class="btn button2 px-3 py-1 me-3 rounded-5">
+                    <i class="bi bi-arrow-left "></i>
+                </a>
                 <div class="row">
                     <div class="col-12 text-center mb-3">
                         <h1 style="margin-bottom: -6px;">Kontak Kami</h1>

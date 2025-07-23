@@ -48,20 +48,6 @@ if (isset($_POST['submit'])) {
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse " id="navbarNav">
-                <ul class="navbar-nav col-12 justify-content-center">
-                    <li class="nav-item fs-5 me-4 py-3 navbarr">
-                        <a class="nav-link text-white" href="tentangkami.php">Tentang Kami</a>
-                    </li>
-                    <li class="nav-item fs-5 py-3 me-4 borderactive navbarr">
-                        <a class="nav-link active fw-semibold text-white " aria-current="page" href="index.php">Data
-                            Jalan Tol</a>
-                    </li>
-
-                    <li class="nav-item fs-5 py-3 me-5 navbarr">
-                        <a class="nav-link text-white " aria-current="page" href="kontak.php">Kontak Kami</a>
-                    </li>
-
-                </ul>
             </div>
         </div>
         <div class=" d-flex justify-content-end ms-5 ps-5 me-5 ">
@@ -134,10 +120,6 @@ if (isset($_POST['submit'])) {
                             <i class="bi bi-plus me-2"></i>Tambah Data
                         </button>
                     </div>
-
-
-
                 </form>
 </body>
-
 </html>

@@ -40,7 +40,7 @@ if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
 
     <nav class="navbar navbar-expand-lg" style="background-color: #1F4A84; z-index: 1030;">
         <div class="container-fluid ">
-            <a class="navbar-brand col-2 p-0" href="tentangkami.php">
+            <a class="navbar-brand col-2 p-0">
                 <img src="img/putih.svg" alt="" class="col-10 ps-4 ms-3">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -330,7 +330,6 @@ if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
                         </div>
 
 
-
                     </div>
                 </div>
             </div>
@@ -362,16 +361,22 @@ if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
         </ul>
       </div>
 
-      <div class="col-md-3 mb-4">
+      <div class="col-md-2 mb-4">
         <h6 class="fw-bold">Kontak Kami</h6>
         <p class="text-muted small mb-1">Plaza Tol Taman Mini Indonesia Indah Jakarta, 13550 Indonesia</p>
         <p class="text-muted small mb-1">Telp. +6221 841 3630, +6221 841 3626</p>
         <p class="text-muted small">Email. jsmr@jasamarga.co.id</p>
       </div>
+
+      <div class="col-md-3 mb-4">
+        <h6 class="fw-bold">Kontak Darurat</h6>
+        <p class="text-muted small mb-1">Layanan 24 Jam untuk keadaan darurat di jalan tol.</p>
+        <a href="kontak.php" class="btn btn-sm btn-outline-danger text-decoration-none mt-2">Kontak Darurat</a>
+      </div>
     </div>
 
     <div class="text-center mt-3 text-muted small">
-      © 2021. PT Jasa Marga (Persero)
+      © 2025. PT Jasa Marga (Persero)
     </div>
   </div>
 
@@ -381,6 +386,7 @@ if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
     </a>
   </div>
 </footer>
+
 
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
             integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
