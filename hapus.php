@@ -16,3 +16,4 @@ if ($berhasil) {
     header("Location: datajalantol.php?error=gagal_menghapus_data");
     exit;
 }
+ 
