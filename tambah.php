@@ -38,9 +38,9 @@ if (isset($_POST['submit'])) {
 </head>
  
 <body style="background-color: #d9d9daff;" class="">
-    <nav class="navbar navbar-expand-lg m-0 p-0 " style="background-color: #1F4A84;">
+    <nav class="navbar navbar-expand-lg" style="background-color: #1F4A84;">
         <div class="container-fluid ">
-            <a class="navbar-brand col-2 p-0" href="#">
+            <a class="navbar-brand col-2" href="datajalantol.php">
                 <img src="img/putih.svg" alt="" class="col-10 ps-4 ms-3">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Data Jalan Tol</title>
+    <title>Kontak Kami</title>
     <link rel="Icon" type="png" href="img/jasamarga.png">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
@@ -19,7 +19,7 @@
 <body style="background-color: #d9d9daff;">
     <nav class="navbar navbar-expand-lg  sticky-top" style="background-color: #1F4A84; z-index: 1030;">
         <div class="container-fluid">
-            <a class="navbar-brand col-2 p-0" href="tentangkami.php">
+            <a class="navbar-brand col-2 " href="index.php">
                 <img src="img/putih.svg" alt="" class="col-10 ps-4 ms-3">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"

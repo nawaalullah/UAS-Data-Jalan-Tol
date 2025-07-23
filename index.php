@@ -23,7 +23,7 @@ if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Jalan Tol</title>
+    <title>Beranda</title>
     <link rel="Icon" type="png" href="img/jasamarga.png">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
@@ -40,7 +40,7 @@ if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
 
     <nav class="navbar navbar-expand-lg" style="background-color: #1F4A84; z-index: 1030;">
         <div class="container-fluid ">
-            <a class="navbar-brand col-2 ">
+              <a class="navbar-brand col-2 " href="index.php">
                 <img src="img/putih.svg" alt="" class="col-10 ps-4 ms-3">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
