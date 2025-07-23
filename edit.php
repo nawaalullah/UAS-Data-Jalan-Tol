@@ -15,7 +15,7 @@ if (isset($_POST['submit'])) {
     // Kirim $_FILES bukan nama string saja
     updateTol($id, $asal, $_FILES['gambar_asal'], $tujuan, $_FILES['gambar_tujuan'], $harga);
 
-    header("Location: index.php");
+    header("Location: datajalantol.php?success=update");
     exit();
 }
 ?>
@@ -39,6 +39,12 @@ if (isset($_POST['submit'])) {
 </head>
  
 <body style="background-color: #d9d9daff;" class="">
+    <?php if (isset($_GET['success']) && $_GET['success'] === 'update'): ?>
+<script>
+    alert("Data berhasil diubah!");
+</script>
+<?php endif; ?>
+
     <nav class="navbar navbar-expand-lg" style="background-color: #1F4A84;">
         <div class="container-fluid ">
             <a class="navbar-brand col-2" href="datajalantol.php">
