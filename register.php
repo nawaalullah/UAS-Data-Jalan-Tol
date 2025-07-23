@@ -3,18 +3,38 @@ session_start();
 include 'db.php';
 
 if (isset($_POST['register'])) {
-    $username = $_POST['username'];
+    $username = trim($_POST['username']);
+    $email = trim($_POST['email']);
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-    $check = mysqli_query($conn, "SELECT * FROM users WHERE username='$username'");
-    if (mysqli_num_rows($check) == 0) {
-        mysqli_query($conn, "INSERT INTO users (username, password) VALUES ('$username', '$password')");
-        header("Location: login.php");
+    if (empty($username) || empty($email)) {
+        echo "<script>alert('Username dan Email wajib diisi!');</script>";
     } else {
-        echo "Username sudah ada!";
+        $stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows === 0) {
+            $stmt_insert = $conn->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
+            $stmt_insert->bind_param("sss", $username, $email, $password);
+            $stmt_insert->execute();
+
+            // Flag agar login.php tahu user baru saja register
+            $_SESSION['from_register'] = true;
+
+            echo "<script>alert('Registrasi berhasil! Silakan login.'); window.location.href = 'login.php';</script>";
+            exit;
+        } else {
+            echo "<script>alert('Username sudah digunakan. Silakan pilih yang lain.');</script>";
+        }
     }
 }
 ?>
+
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -43,7 +63,6 @@ if (isset($_POST['register'])) {
                 <form action="" method="post" class="col-10 mx-auto">
                     <h1 class="text-center">Registrasi</h1>
 
-                    <!-- Tambahan Input Username -->
                     <div class="mb-3 mt-5">
                         <label for="username" class="form-label fs-6 text-secondary">Username</label>
                         <input type="text" class="form-control" id="username" name="username"
@@ -65,8 +84,7 @@ if (isset($_POST['register'])) {
                     <button type="submit" name="register"
                         class="btn button1 px-5 rounded-5 d-flex mx-auto fs-5 ">Registrasi</button>
 
-
-                    <div class=" ">
+                    <div class="">
                         <p class="fs-6 mt-3 text-center "> <span class="text-secondary">Sudah Memiliki Akun?</span> <a
                                 href="login.php">Login</a></p>
                     </div>

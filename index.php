@@ -1,12 +1,20 @@
 <?php
 session_start();
-include 'db.php';
-include 'functions.php';
+if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
+    header('Location: datajalantol.php');
+    exit;
+}
 
-// Ambil filter pencarian jika ada
-$asal = isset($_GET['asal']) ? $_GET['asal'] : '';
-$tujuan = isset($_GET['tujuan']) ? $_GET['tujuan'] : '';
-$tols = getFilteredTol($asal, $tujuan);
+
+
+
+// Jika sudah login, redirect ke halaman data jalan tol
+if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
+    header("Location: datajalantol.php");
+    exit;
+}
+
+// Jika belum login, tampilkan halaman index.php (misalnya halaman login)
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +38,7 @@ $tols = getFilteredTol($asal, $tujuan);
 
 <body style="background-color: #d9d9daff;" class="">
 
-    <nav class="navbar navbar-expand-lg m-0 p-0 sticky-top" style="background-color: #1F4A84; z-index: 1030;">
+    <nav class="navbar navbar-expand-lg" style="background-color: #1F4A84; z-index: 1030;">
         <div class="container-fluid ">
             <a class="navbar-brand col-2 p-0" href="tentangkami.php">
                 <img src="img/putih.svg" alt="" class="col-10 ps-4 ms-3">
@@ -39,119 +47,350 @@ $tols = getFilteredTol($asal, $tujuan);
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse " id="navbarNav">
-                <ul class="navbar-nav col-12 justify-content-center">
-                    <li class="nav-item fs-5 me-4 py-3 navbarr">
-                        <a class="nav-link text-white" href="tentangkami.php">Beranda</a>
-                    </li>
-                    <li class="nav-item fs-5 py-3 me-4 borderactive navbarr">
-                        <a class="nav-link active fw-semibold text-white " aria-current="page" href="index.php">Data
-                            Jalan Tol</a>
-                    </li>
-
-                    <li class="nav-item fs-5 py-3 me-5 navbarr">
-                        <a class="nav-link text-white " aria-current="page" href="kontak.php">Kontak Kami</a>
-                    </li>
-
-                </ul>
-            </div>
+          
         </div>
-        <div class=" d-flex justify-content-end ms-5 ps-5 me-5 ">
-            <a href="logout.php" class="btn rounded-5  ms-5  px-3 py-2 fw-semibold button3"
-                onclick="return confirm('Apakah anda yakin ingin keluar ?')">
-                <i class="bi bi-box-arrow-right fs-5 text-white"></i>
-            </a>
-        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <a href="login.php" type="button" class="btn button1 py-1 px-4 "> Masuk</a>
+      <a href="register.php" type="button" class="btn button2 py-1 px-4 mx-4"> Daftar</a>
+    </div>
     </nav>
 
-
-
-    <div class="container mt-5">
-        <div class="bg-white rounded-4 d-flex align-items-center p-4">
-            <form method="get" class="col-12">
-
-                <div class="row">
-                    <div class="col-12 text-center mt-3 mb-3">
-                        <h1 style="margin-bottom: -6px;">Data Jalan Tol </h1>
-                        <small class="text-secondary fw-light">Jasamarga Tollroad Operator 2025 </small>
-                    </div>
-
-                </div>
-
-                <div class="row mt-4 col-12">
-                    <div class="col-3 align-self-center">
-                        <p for="asal" class="form-label fs-6">Asal Gerbang Tol</p>
-                        <input type="text" class="form-control pe-5" id="asal" name="asal"
-                            placeholder="Masukan Tol Asal" value="<?= $asal ?>">
-                    </div>
-                    <div class="col-3 align-self-center ">
-                        <p for="tujuan" class="form-label fs-6">Tujuan Gerbang Tol</p>
-                        <input type="text" class="form-control pe-5" id="tujuan" name="tujuan"
-                            placeholder="Masukan Tol Tujuan" value="<?= $tujuan ?>">
-                    </div>
-
-                    <div class="col-3 align-self-end mb-1 ">
-                        <button type="submit" class="btn button1 px-4 py-1">
-                            <i class="bi bi-search me-2"></i>Cari
-                        </button>
-                        <a href="index.php" class="btn button2 px-3 py-1 ms-2">
-                            <i class="bi bi-x-circle me-2"></i>Reset
-                        </a>
-                    </div>
-
-                    <div class="col-3 align-self-end mb-1 d-flex justify-content-end ">
-                        <a href="tambah.php" class="btn btn-success px-3 py-1">
-                            <i class="bi bi-plus me-2"></i>Tambah Data
-                        </a>
-                    </div>
-                </div>
-
-                <table class="table table-striped mt-3">
-                    <thead>
-                        <tr>
-                            <th class="fs-5 fw-semibold text-center">GT Asal</th>
-                            <th class="fs-5 fw-semibold text-center">Gambar GT Asal</th>
-                            <th class="fs-5 fw-semibold text-center">GT Tujuan</th>
-                            <th class="fs-5 fw-semibold text-center">Gambar GT Tujuan</th>
-                            <th class="fs-5 fw-semibold text-center">Tarif</th>
-                            <th class="fs-5 fw-semibold text-center"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($tols as $data): ?>
-                        <tr>
-                            <td class="fs-6 fw-light text-center align-content-center"><?= $data['tol_asal'] ?></td>
-                            <td class="fs-6 fw-light text-center">
-                                <img src="uploads/<?= $data['gambar_asal']; ?>?t=<?= time(); ?>" width="100">
-                            </td>
-                            <td class="fs-6 fw-light text-center align-content-center"><?= $data['tol_tujuan'] ?></td>
-                            <td class="fs-6 fw-light text-center">
-                                <img src="uploads/<?= $data['gambar_tujuan']; ?>?t=<?= time(); ?>" width="100">
-                            </td>
-                            <td class="fs-6 fw-light text-center align-content-center">
-                                <?= number_format($data['harga'], 0, ',', '.') ?>
-                            </td>
-                            <td class="align-content-center">
-                                <div class="text-center me-3 d-flex justify-content-end">
-                                    <a href="edit.php?id=<?= $data['id'] ?>"
-                                        class="btn button1 text-white px-4 py-1 me-2">Edit</a>
-                                    <a href="hapus.php?id=<?= $data['id'] ?>" class="btn btn-danger py-1"
-                                        onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</a>
-                                </div>
-                            </td>
-                        </tr>
-                        <?php endforeach; ?>
-
-                        <?php if (empty($tols)): ?>
-                        <tr>
-                            <td colspan="6" class="text-center">Tidak ada data ditemukan</td>
-                        </tr>
-                        <?php endif; ?>
-                    </tbody>
-                </table>
-            </form>
+    <!-- Carousel -->
+    <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel"
+        data-bs-interval="30000">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
         </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="img/Jalan Tol Bali Mandara.jpeg" class="d-block w-100" alt="Jalan Tol Bali Mandara"
+                    style="height: 650px; object-fit: cover;">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Jalan Tol Bali Mandara</h5>
+                    <p>Some representative placeholder content for the first slide.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="img/Jalan Tol Cipularang.jpeg" class="d-block w-100" alt="Jalan Tol Cipularang"
+                    style="height: 650px; object-fit: cover;">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Jalan Tol Cipularang</h5>
+                    <p>Some representative placeholder content for the second slide.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="img/Jalan Tol Semarang-Solo.jpg" class="d-block w-100" alt="Jalan Tol Semarang-Solo"
+                    style="height: 650px; object-fit: cover;">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Jalan Tol Semarang-Solo</h5>
+                    <p>Some representative placeholder content for the third slide.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
-</body>
 
+
+    <!-- Tentang Kami -->
+    < <nav class="mt-5 pt-4 col-12 col-lg-12 col-md-12 col-sm-12 ">
+        <div class="nav nav-underline justify-content-center" id="nav-tab" role="tablist">
+            <button class="nav-link active " id="nav-home-tab " data-bs-toggle="tab" data-bs-target="#nav-home"
+                type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tentang Kami</button>
+            <button class="nav-link mx-5" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
+                type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Kenapa Harus Memilih
+                Kami?</button>
+            <button class="nav-link " id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact"
+                type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Visi & Misi</button>
+
+        </div>
+        </nav>
+
+        <div class="container-fluid mb-5 pb-5 tab-content " id="nav-tabContent">
+
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"
+                tabindex="0">
+                <div class="d-flex justify-content-center">
+
+                    <div class=" col-lg-5 pt-5 col-sm-4 text-end align-items-center">
+                        <img src="img/margajasa.jpg" alt="" width="70%" class="gambartentangkami">
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6 d-flex justify-content-left align-items-center">
+
+                        <div class="col-12 col-lg-8 col-md-10 col-sm-10 mt-4 tentangkami ps-5 ms-5 "
+                            style="color: #879694;">
+                            <h5 class=""><span class="fw-bold">Jasa Marga</span> Jasa Marga merupakan pengembang dan
+                                operator jalan tol pertama serta terbesar di Indonesia dengan pangsa pasar sebesar 45%
+                                untuk panjang jalan tol komersial yang telah beroperasi (±1.286 km). Dengan pengalaman
+                                selama lebih dari 46 tahun, Jasa Marga saat ini mengelola 36 konsesi jalan tol dengan
+                                total panjang jalan 1.736 km. <h5 class="
+                        py-3 "> <span class="fw"> Sebagai salah satu Badan Usaha Milik Negara, 70% saham Jasa Marga
+                                        dimiliki oleh Pemerintah Indonesia. Sejak 2007, Jasa Marga menjadi perusahaan
+                                        publik melalui Penawaran Umum Perdana Saham (Initial Public Offering/IPO) dan
+                                        mencatatkan sahamnya di Bursa Efek Indonesia.
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade " id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+
+                <div class="container-fluid mt-5 pt-5">
+                    <div class="justify-content-center row ">
+                        <div class="col-11 col-lg-3 col-md-3 col-sm-12 mb-5 shadow-lg p-3 rounded-3 bg-secondary ">
+                            <div class="text-center col-5 col-lg-5 col-md-5 col-sm-5 mx-auto">
+                                <img src="img/terpercaya1.svg" alt="">
+                            </div>
+                            <h1 class="text-white fs-5 mb-4 text-center fw-semibold col-5 col-lg-4 col-md-6 col-sm-12 pb-1 mx-auto "
+                                style="border-bottom: 2px solid white;">Pengalaman dan Keahlian</h1>
+                            <p class="col-10 col-sm-10 col-md-10 col-lg-10 text-center mx-auto text-white">Jasa Marga
+                                memiliki pengalaman panjang dalam industri jalan tol, termasuk dalam perencanaan,
+                                pembangunan, pengoperasian, dan pemeliharaan jalan tol.
+                            </p>
+
+                        </div>
+                        <div class="col-11 col-lg-3 col-md-3 col-sm-12 mb-5 rounded-3 mx-5 py-3"
+                            style="background-color: #e2e2e2; color: #879694;">
+                            <div class="text-center col-5 col-lg-5 col-md-5 col-sm-5 mx-auto pb-3">
+                                <img src="img/terjangkau.svg" alt="">
+                            </div>
+                            <h1 class="fs-5 mb-4 text-center fw-semibold col-9 col-lg-6 col-md-8 col-sm-12 pb-1 mx-auto "
+                                style="border-bottom: 2px solid #879694; color: #879694;">Skala dan Jangkauan</h1>
+                            <p class="col-10 col-sm-10 col-md-10 col-lg-10 text-center mx-auto">Sebagai pengembang jalan
+                                tol terbesar di Indonesia, Jasa Marga memiliki jangkauan luas dan mampu mengelola
+                                proyek-proyek jalan tol skala besar.
+                            </p>
+
+                        </div>
+
+                        <div class="col-11 col-lg-3 col-md-3 col-sm-12 mb-5 shadow-lg p-3 rounded-3 "
+                            style="background-color: #879694;">
+                            <div class="text-center col-5 col-lg-5 col-md-5 col-sm-5 mx-auto pb-1">
+                                <img src="img/kreatif.svg" alt="">
+                            </div>
+                            <h1 class="text-white fs-5 mb-4 text-center fw-semibold col-3 col-lg-3 col-md-5 col-sm-12 pb-1 mx-auto "
+                                style="border-bottom: 2px solid white;">Inovasi dan Transformasi</h1>
+                            <p class="col-10 col-sm-10 col-md-10 col-lg-10 text-center mx-auto text-white">Jasa Marga
+                                terus berupaya untuk berinovasi dan bertransformasi, termasuk dalam penerapan
+                                prinsip-prinsip tata kelola perusahaan yang baik (GCG).
+
+                            </p>
+
+                        </div>
+
+                        <div class="col-11 col-lg-3 col-md-3 col-sm-12 mb-5 shadow-lg p-3 rounded-3 "
+                            style="background-color: #879694;">
+                            <div class="text-center col-7 col-lg-7 col-md-7 col-sm-7 mx-auto">
+                                <img src="img/konsep.svg" alt="">
+                            </div>
+                            <h1 class="text-white fs-5 mb-4 text-center fw-semibold col-11 col-lg-8 col-md-10 col-sm-12 pb-1 mx-auto "
+                                style="border-bottom: 2px solid white;">Komitmen Terhadap Pembangunan Nasional</h1>
+                            <p class="col-10 col-sm-10 col-md-10 col-lg-10 text-center mx-auto text-white">Jasa Marga
+                                memiliki komitmen untuk berkontribusi pada pembangunan infrastruktur jalan tol di
+                                seluruh Indonesia, yang pada akhirnya akan mendorong pertumbuhan ekonomi.
+
+                            </p>
+
+                        </div>
+
+                        <div class="col-11 col-lg-3 col-md-3 col-sm-12 mb-5  rounded-3 mx-5 py-3"
+                            style="background-color: #e2e2e2;">
+                            <div class="text-center col-5 col-lg-5 col-md-5 col-sm-5 mx-auto">
+                                <img src="img/lokasi.svg" alt="">
+                            </div>
+                            <h1 class=" fs-5 mb-4 text-center fw-semibold col-9 col-lg-6 col-md-8 col-sm-12 pb-1 mx-auto "
+                                style="border-bottom: 2px solid #879694; color: #879694;">Stabilitas dan Reputasi</h1>
+                            <p class="col-10 col-sm-10 col-md-10 col-lg-10 text-center mx-auto" style="color: #879694;">
+                                Sebagai BUMN, Jasa Marga menawarkan stabilitas pekerjaan dan reputasi yang baik dalam
+                                industri.
+                            </p>
+
+                        </div>
+                        <div class="col-11 col-lg-3 col-md-3 col-sm-12 mb-5 shadow-lg p-3 rounded-3  bg-secondary">
+                            <div class="text-center col-5 col-lg-5 col-md-5 col-sm-5 mx-auto">
+                                <img src="img/pengalaman.svg" alt="" width="90%">
+                            </div>
+                            <h1 class="text-white fs-5 mb-4 text-center fw-semibold col-7 col-lg-6 col-md-8 col-sm-12 pb-1 mx-auto "
+                                style="border-bottom: 2px solid white;">Good Corporate Governance (GCG)</h1>
+                            <p class="col-10 col-sm-10 col-md-10 col-lg-10 text-center mx-auto text-white">Jasa Marga
+                                menerapkan prinsip-prinsip GCG dalam pengelolaan perusahaan, memastikan transparansi,
+                                akuntabilitas, dan efisiensi.
+
+                            </p>
+
+                        </div>
+
+
+
+                        <div class="col-11 col-lg-3 col-md-3 col-sm-12 mb-5 shadow-lg p-3 rounded-3 bg-secondary ">
+                            <div class="text-center col-7 col-lg-7 col-md-7 col-sm-7 mx-auto pb-2">
+                                <img src="img/prof.svg" alt="">
+                            </div>
+                            <h1 class="text-white fs-5 mb-4 text-center fw-semibold col-10 col-lg-8 col-md-10 col-sm-12 pb-1 mx-auto "
+                                style="border-bottom: 2px solid white;">Didukung oleh Pemerintah</h1>
+                            <p class="col-10 col-sm-10 col-md-10 col-lg-10 text-center mx-auto text-white">Jasa Marga
+                                didukung oleh pemerintah dalam pengembangan jalan tol, termasuk dalam hal permodalan dan
+                                pembebasan lahan.
+
+
+                            </p>
+
+                        </div>
+                        <div class="col-11 col-lg-3 col-md-3 col-sm-12 mb-5 rounded-3 mx-5 py-3"
+                            style="background-color: #e2e2e2;">
+                            <div class="text-center col-5 col-lg-5 col-md-5 col-sm-5 mx-auto pb-2">
+                                <img src="img/ok.svg" alt="">
+                            </div>
+                            <h1 class=" fs-5 mb-4 text-center fw-semibold col-7 col-lg-5 col-md-7 col-sm-12 pb-1 mx-auto "
+                                style="border-bottom: 2px solid #879694; color: #879694;">Mitra Bisnis Strategis</h1>
+                            <p class="col-10 col-sm-10 col-md-10 col-lg-10 text-center mx-auto" style="color: #879694;">
+                                Jasa Marga menjalin kerja sama dengan mitra bisnis strategis yang memiliki keahlian di
+                                bidangnya untuk memastikan kualitas pekerjaan yang optimal.
+
+                            </p>
+
+                        </div>
+
+                        <div class="col-11 col-lg-3 col-md-3 col-sm-12 mb-5 shadow-lg p-3 rounded-3 "
+                            style="background-color: #879694;">
+                            <div class="text-center col-5 col-lg-5 col-md-5 col-sm-5 mx-auto">
+                                <img src="img/24.svg" alt="">
+                            </div>
+                            <h1 class="text-white fs-5 mb-4 text-center fw-semibold col-7 col-lg-5 col-md-7 col-sm-12 pb-1 mx-auto "
+                                style="border-bottom: 2px solid white;"> Peningkatan Konektivitas Nasional</h1>
+                            <p class="col-10 col-sm-10 col-md-10 col-lg-10 text-center mx-auto text-white">Jasa Marga
+                                berperan penting dalam meningkatkan konektivitas nasional melalui pembangunan jalan tol,
+                                yang pada akhirnya akan mendukung mobilitas masyarakat dan distribusi barang.
+
+                            </p>
+
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
+
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"
+                    tabindex="0">
+                    <div class="d-flex justify-content-center ">
+
+                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                            aria-labelledby="nav-home-tab" tabindex="0">
+                            <div class="container my-4">
+                                <div class="row align-items-center">
+                                    <!-- Kolom Gambar -->
+                                    <div class="col-lg-6 col-md-12 text-center mb-4 mb-lg-0">
+                                        <img src="img/pusat.jpg" alt="Pusat" class="img-fluid rounded shadow"
+                                            style="max-width: 100%; height: auto;">
+                                    </div>
+
+                                    <!-- Kolom Teks -->
+                                    <div class="col-lg-6 col-md-12">
+                                        <div style="color: #879694;">
+                                            <h5 class="fw-semibold">Inovasi menuju peningkatan nilai yang berkelanjutan
+                                            </h5>
+                                            <p class="mt-3">
+                                                1. Mengembangkan jaringan jalan tol dan menjalankan usaha di rantai
+                                                nilai bisnis dalam skala nasional maupun internasional. <br><br>
+                                                2. Mengembangkan inovasi untuk memberikan pelayanan unggul, meningkatkan
+                                                keselamatan, kenyamanan, dan kemudahan perjalanan, serta menjalankan
+                                                operasi dan proses bisnis Perusahaan dengan efisien dan
+                                                berkesinambungan. <br><br>
+                                                3. Menerapkan prinsip-prinsip lingkungan, sosial, dan tata kelola
+                                                Perusahaan yang baik untuk memastikan ketahanan usaha. <br><br>
+                                                4. Mendorong peningkatan manfaat yang berkelanjutan bagi masyarakat,
+                                                pemegang saham, dan stakeholder lainnya, serta peningkatan nilai
+                                                Perusahaan secara menyeluruh.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        </div>
+
+<footer class="bg-light pt-5 pb-3 border-top">
+  <div class="container">
+    <div class="row text-start text-md-left">
+      <div class="col-md-3 mb-4">
+        <img src="uploads/jasa marga.png" alt="Jasa Marga" width="140" class="mb-2">
+        <p class="text-muted small">Indonesia Highway Corp.</p>
+      </div>
+
+      <div class="col-md-2 mb-4">
+        <h6 class="fw-bold">Tentang Kami</h6>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-muted text-decoration-none">Disclaimer</a></li>
+          <li><a href="#" class="text-muted text-decoration-none">Eksternal Link</a></li>
+        </ul>
+      </div>
+
+      <div class="col-md-2 mb-4">
+        <h6 class="fw-bold">Bantuan</h6>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-muted text-decoration-none">Kalkulator Tarif Tol</a></li>
+        </ul>
+      </div>
+
+      <div class="col-md-3 mb-4">
+        <h6 class="fw-bold">Kontak Kami</h6>
+        <p class="text-muted small mb-1">Plaza Tol Taman Mini Indonesia Indah Jakarta, 13550 Indonesia</p>
+        <p class="text-muted small mb-1">Telp. +6221 841 3630, +6221 841 3626</p>
+        <p class="text-muted small">Email. jsmr@jasamarga.co.id</p>
+      </div>
+    </div>
+
+    <div class="text-center mt-3 text-muted small">
+      © 2021. PT Jasa Marga (Persero)
+    </div>
+  </div>
+
+  <div style="position: fixed; bottom: 20px; right: 20px;">
+    <a href="#" class="btn btn-light rounded-circle shadow">
+      <i class="fas fa-arrow-up"></i>
+    </a>
+  </div>
+</footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+            integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous">
+        </script>
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script>
+            AOS.init();
+        </script>
+</body>
 </html>

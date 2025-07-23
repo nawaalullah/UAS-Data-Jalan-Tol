@@ -107,19 +107,30 @@ function updateTol($id, $asal, $gambarAsalFile, $tujuan, $gambarTujuanFile, $har
 function deleteTol($id) {
     global $conn;
     $id = (int)$id;
-    $data = mysqli_fetch_assoc(getTolById($id));
 
-    if ($data) {
-        if (!empty($data['gambar_asal']) && file_exists("uploads/{$data['gambar_asal']}")) {
-            unlink("uploads/{$data['gambar_asal']}");
-        }
-        if (!empty($data['gambar_tujuan']) && file_exists("uploads/{$data['gambar_tujuan']}")) {
-            unlink("uploads/{$data['gambar_tujuan']}");
-        }
+    // Ambil data terlebih dahulu
+    $result = getTolById($id);
+    if (!$result || mysqli_num_rows($result) === 0) {
+        return false; // Data tidak ditemukan
     }
 
-    return mysqli_query($conn, "DELETE FROM tol WHERE id=$id");
+    $data = mysqli_fetch_assoc($result);
+
+    // Hapus gambar asal jika ada
+    if (!empty($data['gambar_asal']) && file_exists("uploads/" . $data['gambar_asal'])) {
+        unlink("uploads/" . $data['gambar_asal']);
+    }
+
+    // Hapus gambar tujuan jika ada
+    if (!empty($data['gambar_tujuan']) && file_exists("uploads/" . $data['gambar_tujuan'])) {
+        unlink("uploads/" . $data['gambar_tujuan']);
+    }
+
+    // Hapus data dari database
+    $deleteQuery = "DELETE FROM tol WHERE id = $id";
+    return mysqli_query($conn, $deleteQuery);
 }
+
 
 // Filter pencarian tol
 function getFilteredTol($asal, $tujuan) {
