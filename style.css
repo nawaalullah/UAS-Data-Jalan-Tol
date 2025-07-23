@@ -17,11 +17,32 @@
   background-color: #1f4a84;
 }
 .button3 {
-  color: white;
+  color: #1f4a84;
+  background-color: #1f4a84;
+  
 }
 .button3:hover {
   color: #1f4a84;
+  background-color: #1f4a84;
   border: 1px solid white;
+}
+.button4 {
+  color: #ffffffff;
+  background-color: #1f4a84;
+  border: 1px solid white;
+}
+.button4:hover {
+  color: #1f4a84;
+  background-color: #e6e6e6ff;
+}
+.button5 {
+  color: #1f4a84;
+  background-color: white;
+  border: 1px solid #1f4a84;
+}
+.button5:hover {
+  color: #1f4a84;
+  background-color: #e6e6e6ff;
 }
 
 .borderactive {

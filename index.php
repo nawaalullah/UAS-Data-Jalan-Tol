@@ -40,7 +40,7 @@ if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
 
     <nav class="navbar navbar-expand-lg" style="background-color: #1F4A84; z-index: 1030;">
         <div class="container-fluid ">
-            <a class="navbar-brand col-2 p-0">
+            <a class="navbar-brand col-2 ">
                 <img src="img/putih.svg" alt="" class="col-10 ps-4 ms-3">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -50,8 +50,8 @@ if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
           
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <a href="login.php" type="button" class="btn button1 py-1 px-4 "> Masuk</a>
-      <a href="register.php" type="button" class="btn button2 py-1 px-4 mx-4"> Daftar</a>
+      <a href="login.php" type="button" class="btn button5 py-1 px-4 "> Masuk</a>
+      <a href="register.php" type="button" class="btn button4 py-1 px-4 mx-4"> Daftar</a>
     </div>
     </nav>
 
@@ -108,12 +108,12 @@ if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
     <!-- Tentang Kami -->
     < <nav class="mt-5 pt-4 col-12 col-lg-12 col-md-12 col-sm-12 ">
         <div class="nav nav-underline justify-content-center" id="nav-tab" role="tablist">
-            <button class="nav-link active " id="nav-home-tab " data-bs-toggle="tab" data-bs-target="#nav-home"
+            <button class="nav-link text-secondary active " id="nav-home-tab " data-bs-toggle="tab" data-bs-target="#nav-home"
                 type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tentang Kami</button>
-            <button class="nav-link mx-5" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
+            <button class="nav-link mx-5 text-secondary " id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
                 type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Kenapa Harus Memilih
                 Kami?</button>
-            <button class="nav-link " id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact"
+            <button class="nav-link text-secondary" id="nav-contact-tab " data-bs-toggle="tab" data-bs-target="#nav-contact"
                 type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Visi & Misi</button>
 
         </div>
@@ -132,7 +132,7 @@ if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
                     <div class="col-12 col-md-6 col-lg-6 col-sm-6 d-flex justify-content-left align-items-center">
 
                         <div class="col-12 col-lg-8 col-md-10 col-sm-10 mt-4 tentangkami ps-5 ms-5 "
-                            style="color: #879694;">
+                            style="color: #636666ff;">
                             <h5 class=""><span class="fw-bold">Jasa Marga</span> Jasa Marga merupakan pengembang dan
                                 operator jalan tol pertama serta terbesar di Indonesia dengan pangsa pasar sebesar 45%
                                 untuk panjang jalan tol komersial yang telah beroperasi (±1.286 km). Dengan pengalaman
@@ -180,7 +180,7 @@ if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
                         </div>
 
                         <div class="col-11 col-lg-3 col-md-3 col-sm-12 mb-5 shadow-lg p-3 rounded-3 "
-                            style="background-color: #879694;">
+                            style="background-color: #1f4a84;">
                             <div class="text-center col-5 col-lg-5 col-md-5 col-sm-5 mx-auto pb-1">
                                 <img src="img/kreatif.svg" alt="">
                             </div>
@@ -195,7 +195,7 @@ if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
                         </div>
 
                         <div class="col-11 col-lg-3 col-md-3 col-sm-12 mb-5 shadow-lg p-3 rounded-3 "
-                            style="background-color: #879694;">
+                            style="background-color: #1f4a84;">
                             <div class="text-center col-7 col-lg-7 col-md-7 col-sm-7 mx-auto">
                                 <img src="img/konsep.svg" alt="">
                             </div>
@@ -268,7 +268,7 @@ if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
                         </div>
 
                         <div class="col-11 col-lg-3 col-md-3 col-sm-12 mb-5 shadow-lg p-3 rounded-3 "
-                            style="background-color: #879694;">
+                            style="background-color: #1f4a84;">
                             <div class="text-center col-5 col-lg-5 col-md-5 col-sm-5 mx-auto">
                                 <img src="img/24.svg" alt="">
                             </div>
@@ -307,7 +307,7 @@ if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
 
                                     <!-- Kolom Teks -->
                                     <div class="col-lg-6 col-md-12">
-                                        <div style="color: #879694;">
+                                        <div style="color: #636666ff;">
                                             <h5 class="fw-semibold">Inovasi menuju peningkatan nilai yang berkelanjutan
                                             </h5>
                                             <p class="mt-3">
@@ -380,11 +380,7 @@ if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
     </div>
   </div>
 
-  <div style="position: fixed; bottom: 20px; right: 20px;">
-    <a href="#" class="btn btn-light rounded-circle shadow">
-      <i class="fas fa-arrow-up"></i>
-    </a>
-  </div>
+  
 </footer>
 
 
