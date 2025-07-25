@@ -4,16 +4,6 @@ if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
     header('Location: datajalantol.php');
     exit;
 }
-
-
-
-
-// Jika sudah login, redirect ke halaman data jalan tol
-if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
-    header("Location: datajalantol.php");
-    exit;
-}
-
 // Jika belum login, tampilkan halaman index.php (misalnya halaman login)
 ?>
 
